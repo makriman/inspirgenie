@@ -1,0 +1,72 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import CTA from '../../components/global/CTA.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+function getSlug(id: string): string {
+  return id.replace(/\.mdx?$/, '');
+}
+
+function readingTime(body: string): number {
+  const words = (body || '').split(/\s+/).length;
+  return Math.ceil(words / 200);
+}
+---
+<PageLayout
+  title="Resources for UK Ecommerce Businesses | inspir"
+  description="Practical guides, insights, and operations advice for UK ecommerce business owners. From outsourcing decisions to platform comparisons."
+>
+  <Breadcrumbs items={[{ label: 'Blog' }]} />
+
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container">
+      <div class="text-center mb-16 max-w-2xl mx-auto">
+        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Resources</p>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
+          Resources for UK ecommerce businesses.
+        </h1>
+        <p class="text-xl text-gray-600">
+          Practical guides and insights for ecommerce operators, owners, and founders.
+        </p>
+      </div>
+
+      {sortedPosts.length > 0 ? (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {sortedPosts.map(post => (
+            <a href={`/blog/${getSlug(post.id)}`} class="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-purple/30 transition-all duration-200">
+              <div class="h-32" style="background: linear-gradient(135deg, #7c3aed 0%, #1e40af 100%);">
+                <div class="h-full flex items-end p-6">
+                  <div class="flex flex-wrap gap-2">
+                    {post.data.tags.slice(0, 2).map((tag: string) => (
+                      <span class="text-xs bg-electric-lime text-dark px-2 py-1 rounded-full font-semibold">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div class="p-6">
+                <h2 class="font-extrabold text-dark text-lg mb-3 group-hover:text-purple transition-colors leading-tight" style="font-family: var(--font-heading);">{post.data.title}</h2>
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">{post.data.description}</p>
+                <div class="flex items-center justify-between text-xs text-gray-400">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  </time>
+                  <span>{readingTime(post.body || '')} min read</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <p class="text-gray-500 text-lg">Posts coming soon.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <CTA heading="Need help with your ecommerce operations?" subheading="One operator. 40 hours a week. £999/month." />
+</PageLayout>

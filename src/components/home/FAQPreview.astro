@@ -1,0 +1,48 @@
+---
+import Accordion from '../ui/Accordion.astro';
+
+const homepageFAQs = [
+  {
+    question: "How quickly can I get started?",
+    answer: "Two weeks from first payment to go-live. The scoping call usually happens within 48 hours of your enquiry, and we can have a contract ready within days after that."
+  },
+  {
+    question: "What platforms do you support?",
+    answer: "All of them. Shopify (including Plus), WooCommerce, Magento, BigCommerce, Wix, Squarespace, PrestaShop, OpenCart, and more. Your operator is trained on your specific platform."
+  },
+  {
+    question: "Where are your operators based?",
+    answer: "Our operators work remotely. Every client has a named account contact at inspir, based in London, for escalations and account management."
+  },
+  {
+    question: "What if I don't have SOPs or a helpdesk?",
+    answer: "We build them during onboarding. No extra charge. Many clients start with nothing formal — we document your processes and set up a helpdesk as part of the two-week onboarding."
+  },
+  {
+    question: "Can I cancel anytime?",
+    answer: "Yes. Monthly billing, no lock-in. Written notice before your next billing date, no exit fees, no penalties."
+  },
+  {
+    question: "What does £999/month actually include?",
+    answer: "One dedicated operator, 40 hours per week, matched to your timezone. Plus weekly reports, full audit trail, SOP documentation, and a free AI chatbot for your storefront."
+  }
+];
+---
+<section class="py-20 lg:py-28 bg-cream">
+  <div class="container max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-3">Common questions</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-dark" style="font-family: var(--font-heading);">
+        Quick answers.
+      </h2>
+    </div>
+
+    <Accordion items={homepageFAQs} />
+
+    <div class="text-center mt-10">
+      <a href="/faq" class="text-purple font-semibold hover:text-deep-blue transition-colors">
+        See all FAQs →
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTA from '../components/global/CTA.astro';
+import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+---
+<PageLayout
+  title="How It Works — Live in Two Weeks | inspir"
+  description="From first call to live operations in two weeks. See exactly how inspir assigns a dedicated ecommerce operator to your store."
+>
+  <Breadcrumbs items={[{ label: 'How It Works' }]} />
+
+  <!-- Hero -->
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">The process</p>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
+        From first call to live in two weeks.
+      </h1>
+      <p class="text-xl text-gray-600">
+        You don't need to have everything figured out. You need one call. We handle the rest.
+      </p>
+    </div>
+  </section>
+
+  <!-- Detailed steps -->
+  <section class="py-12 lg:py-16 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <div class="space-y-20">
+
+        <!-- Step 1 -->
+        <div class="relative pl-16">
+          <div class="absolute left-0 top-0 w-12 h-12 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center" style="font-family: var(--font-heading);">01</div>
+          <div class="absolute left-6 top-12 bottom-0 w-0.5 bg-gray-200"></div>
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Scoping call</h2>
+          <div class="space-y-4 text-gray-600">
+            <p>The first call is 30 minutes. We ask about your platform, your current operations, the tools you use, your timezone, and the volume you're dealing with. You don't need a neat brief — most clients come in with a rough idea and we help structure it.</p>
+            <p>At the end of the call, you get a scope document: what your operator will handle, what's out of scope, what tools are required, and what the two-week onboarding will look like. You approve it before anything moves forward.</p>
+            <div class="bg-cream rounded-xl p-5 border border-gray-200 mt-4">
+              <h4 class="font-bold text-dark mb-2 text-sm">What we'll ask you</h4>
+              <ul class="space-y-1.5 text-sm">
+                {['What platform are you on?', 'What\'s your average monthly order volume?', 'What tasks are eating the most of your time?', 'Do you have a helpdesk or SOPs already?', 'What timezone are your customers in?'].map(q => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-purple mt-1">·</span>
+                    {q}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative pl-16">
+          <div class="absolute left-0 top-0 w-12 h-12 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center" style="font-family: var(--font-heading);">02</div>
+          <div class="absolute left-6 top-12 bottom-0 w-0.5 bg-gray-200"></div>
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Contract & SLA</h2>
+          <div class="space-y-4 text-gray-600">
+            <p>After the scope is agreed, we send over a straightforward contract. It covers scope of work, service levels, response times, escalation rules, billing terms, cancellation terms, data handling, and confidentiality. Clear English — no traps.</p>
+            <p>Your SLA is tailored to your operation. Typical terms: urgent issues within 1 hour, standard queries within 4 hours during agreed business hours. We don't offer generic SLAs — yours reflects what your store actually needs.</p>
+            <p>No long-term lock-in. Monthly rolling. Cancel with written notice before your next billing date.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative pl-16">
+          <div class="absolute left-0 top-0 w-12 h-12 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center" style="font-family: var(--font-heading);">03</div>
+          <div class="absolute left-6 top-12 bottom-0 w-0.5 bg-gray-200"></div>
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">First payment</h2>
+          <div class="space-y-4 text-gray-600">
+            <p>Payment is monthly in advance. Bank transfer or invoice is standard. Once payment is received, your operator is assigned and the two-week onboarding begins immediately.</p>
+            <p>You don't wait weeks for onboarding to start. Payment triggers the process. Your operator is introduced to you within days.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative pl-16">
+          <div class="absolute left-0 top-0 w-12 h-12 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center" style="font-family: var(--font-heading);">04</div>
+          <div class="absolute left-6 top-12 bottom-0 w-0.5 bg-gray-200"></div>
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Two-week onboarding</h2>
+          <div class="space-y-4 text-gray-600">
+            <p>The two-week onboarding is where the real work happens. Your operator learns your platform, your tools, your brand voice, your policies, and your processes. We don't put someone live on your store until they know how it works.</p>
+            <p>If you have SOPs, your operator reads them and asks questions. If you don't, we build them together — documenting every process as we go. If you don't have a helpdesk, we set one up and configure it.</p>
+            <p>Week one is learning and shadowing. Week two is supervised execution — your operator handles real tasks under QA review before going fully independent. You're involved as much or as little as you want to be.</p>
+            <div class="bg-cream rounded-xl p-5 border border-gray-200 mt-4">
+              <h4 class="font-bold text-dark mb-3 text-sm">Onboarding covers</h4>
+              <ul class="grid grid-cols-2 gap-2 text-sm">
+                {['Platform access and permissions', 'Helpdesk setup (if needed)', 'SOP creation and review', 'Brand voice and tone', 'Escalation rules', 'Reporting format', 'Tool integrations', 'Test run with QA review'].map(item => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-purple flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative pl-16">
+          <div class="absolute left-0 top-0 w-12 h-12 rounded-full bg-electric-lime text-dark font-extrabold text-lg flex items-center justify-center" style="font-family: var(--font-heading);">05</div>
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Go live — and ongoing</h2>
+          <div class="space-y-4 text-gray-600">
+            <p>Your operator starts executing on day one of week three. Full audit trail from the first action. Weekly reports land in your inbox every Monday covering volume, quality, and any escalations from the previous week.</p>
+            <p>You communicate with your operator however you prefer — most clients use a shared Slack channel. Your account contact at inspir is separate and available for anything that needs a higher-level conversation.</p>
+            <p>Monthly review calls keep everything aligned. When your business changes, your operator adapts. SOPs are updated. Scope is reviewed. Nothing gets stale.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-20 text-center">
+        <a href="/contact" class="inline-block bg-electric-lime text-dark font-bold px-10 py-4 rounded-xl text-lg hover:opacity-90 transition-opacity">
+          Start the process →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</PageLayout>

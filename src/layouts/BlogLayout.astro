@@ -1,0 +1,111 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/global/Header.astro';
+import Footer from '../components/global/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  author?: string;
+  tags?: string[];
+  image?: string;
+  readingTime?: number;
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  author = 'inspir team',
+  tags = [],
+  readingTime = 5
+} = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const siteUrl = 'https://inspir.uk';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "author": {
+    "@type": "Organization",
+    "name": "inspir learning LTD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "inspir learning LTD",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/logos/inspir-color.png`
+    }
+  },
+  "datePublished": pubDate.toISOString(),
+  "url": canonicalURL
+};
+---
+<BaseLayout title={`${title} | inspir`} description={description} ogType="article">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(blogPostingSchema)} />
+  <Header />
+  <main>
+    <!-- Breadcrumbs -->
+    <nav class="bg-cream border-b border-gray-200 py-3" aria-label="Breadcrumb">
+      <div class="container">
+        <ol class="flex items-center gap-2 text-sm text-gray-600">
+          <li><a href="/" class="hover:text-purple transition-colors">Home</a></li>
+          <li class="text-gray-400">/</li>
+          <li><a href="/blog" class="hover:text-purple transition-colors">Blog</a></li>
+          <li class="text-gray-400">/</li>
+          <li class="text-dark font-medium truncate max-w-xs">{title}</li>
+        </ol>
+      </div>
+    </nav>
+
+    <article class="py-16 lg:py-24">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <!-- Header -->
+          <header class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+              {tags.map(tag => (
+                <span class="text-xs font-medium bg-electric-lime text-dark px-3 py-1 rounded-full uppercase tracking-wide">{tag}</span>
+              ))}
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">{title}</h1>
+            <p class="text-xl text-gray-600 mb-6">{description}</p>
+            <div class="flex items-center gap-4 text-sm text-gray-400 pb-8 border-b border-gray-200">
+              <span>{author}</span>
+              <span>·</span>
+              <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+              <span>·</span>
+              <span>{readingTime} min read</span>
+            </div>
+          </header>
+
+          <!-- Content -->
+          <div class="prose prose-lg max-w-none">
+            <slot />
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-16 p-8 bg-purple rounded-2xl text-white text-center">
+            <h3 class="text-2xl font-bold mb-3" style="font-family: var(--font-heading);">Need help with your ecommerce operations?</h3>
+            <p class="text-blue-100 mb-6">One dedicated operator, 40 hours a week, £999/month.</p>
+            <a href="/contact" class="inline-block bg-electric-lime text-dark font-bold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity">
+              Get started &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>

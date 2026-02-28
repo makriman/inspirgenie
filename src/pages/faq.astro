@@ -1,0 +1,56 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Accordion from '../components/ui/Accordion.astro';
+import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+import CTA from '../components/global/CTA.astro';
+import { faqCategories, allFAQs } from '../data/faq';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": allFAQs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+<PageLayout
+  title="FAQs — Ecommerce Operations Service | inspir"
+  description="Answers to common questions about inspir's managed ecommerce operations service. Pricing, onboarding, platforms, security, and more."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+  <Breadcrumbs items={[{ label: 'FAQ' }]} />
+
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">FAQ</p>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">Questions answered.</h1>
+        <p class="text-xl text-gray-600">Everything you need to know about inspir and how it works.</p>
+      </div>
+
+      {faqCategories.map((category) => (
+        <div class="mb-16">
+          <h2 class="text-2xl font-extrabold text-dark mb-8 pb-4 border-b border-gray-200" style="font-family: var(--font-heading);">
+            {category.title}
+          </h2>
+          <Accordion items={category.items} />
+        </div>
+      ))}
+
+      <div class="mt-12 p-8 bg-white rounded-2xl border border-gray-200 text-center">
+        <h3 class="font-bold text-dark text-xl mb-3" style="font-family: var(--font-heading);">Still have questions?</h3>
+        <p class="text-gray-600 mb-6">Get in touch and we'll answer personally, usually within a few hours.</p>
+        <a href="mailto:hello@inspir.uk" class="text-purple font-semibold hover:text-deep-blue transition-colors">
+          hello@inspir.uk
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</PageLayout>

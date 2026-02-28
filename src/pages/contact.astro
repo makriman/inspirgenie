@@ -1,0 +1,226 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+
+const siteUrl = 'https://inspir.uk';
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "inspir learning LTD",
+  "url": siteUrl,
+  "email": "hello@inspir.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "London SW9 0PP",
+    "addressCountry": "GB"
+  }
+};
+---
+<PageLayout
+  title="Get Started — Hire an Ecommerce Operator | inspir"
+  description="Tell us about your store. We'll scope it, price it, and have your dedicated operator live in two weeks."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(localBusinessSchema)} />
+  <Breadcrumbs items={[{ label: 'Contact' }]} />
+
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container">
+      <div class="max-w-5xl mx-auto">
+        <div class="mb-12">
+          <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Get started</p>
+          <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">
+            Tell us about your store.
+          </h1>
+          <p class="text-xl text-gray-600">
+            We'll scope it, price it, and get you live in two weeks.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-12">
+          <!-- Form -->
+          <div class="lg:col-span-3">
+            <!-- TODO: Connect form to backend (webhook, email service, or CRM) -->
+            <form id="contact-form" class="space-y-6" action="#" method="POST">
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="name" class="block text-sm font-semibold text-dark mb-2">Name <span class="text-coral">*</span></label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-dark mb-2">Email <span class="text-coral">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+                    placeholder="you@yourstore.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="store_url" class="block text-sm font-semibold text-dark mb-2">Store URL <span class="text-gray-400 font-normal text-xs">(optional)</span></label>
+                <input
+                  type="url"
+                  id="store_url"
+                  name="store_url"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+                  placeholder="https://yourstore.com"
+                />
+              </div>
+
+              <div>
+                <label for="platform" class="block text-sm font-semibold text-dark mb-2">Platform <span class="text-coral">*</span></label>
+                <select
+                  id="platform"
+                  name="platform"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+                >
+                  <option value="" disabled selected>Select your platform</option>
+                  <option value="shopify">Shopify</option>
+                  <option value="shopify-plus">Shopify Plus</option>
+                  <option value="woocommerce">WooCommerce</option>
+                  <option value="magento">Magento</option>
+                  <option value="bigcommerce">BigCommerce</option>
+                  <option value="wix">Wix</option>
+                  <option value="squarespace">Squarespace</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-dark mb-3">What do you need help with?</label>
+                <div class="grid grid-cols-2 gap-3">
+                  {[
+                    { value: 'customer-support', label: 'Customer support' },
+                    { value: 'order-management', label: 'Order management' },
+                    { value: 'catalogue-management', label: 'Catalogue management' },
+                    { value: 'returns-refunds', label: 'Returns & refunds' },
+                    { value: 'inventory-ops', label: 'Inventory operations' },
+                    { value: 'other', label: 'Other' },
+                  ].map(option => (
+                    <label class="flex items-center gap-3 p-3 rounded-xl border border-gray-200 bg-white cursor-pointer hover:border-purple transition-colors">
+                      <input
+                        type="checkbox"
+                        name="help_with"
+                        value={option.value}
+                        class="w-4 h-4 text-purple rounded focus:ring-purple"
+                      />
+                      <span class="text-sm text-gray-700">{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label for="order_volume" class="block text-sm font-semibold text-dark mb-2">Monthly order volume</label>
+                <select
+                  id="order_volume"
+                  name="order_volume"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+                >
+                  <option value="" disabled selected>Select volume</option>
+                  <option value="under-100">Under 100 orders</option>
+                  <option value="100-500">100–500 orders</option>
+                  <option value="500-2000">500–2,000 orders</option>
+                  <option value="2000+">2,000+ orders</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-semibold text-dark mb-2">Anything else? <span class="text-gray-400 font-normal text-xs">(optional)</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-dark placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all resize-none"
+                  placeholder="Any other context that would help us..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-electric-lime text-dark font-bold py-4 rounded-xl text-lg hover:opacity-90 transition-opacity"
+              >
+                Get started →
+              </button>
+
+              <p class="text-xs text-gray-400 text-center">
+                No commitment required. We'll reply within 24 hours.
+              </p>
+            </form>
+
+            <!-- Success message (hidden by default) -->
+            <div id="form-success" class="hidden mt-6 p-6 bg-electric-lime/20 border border-electric-lime rounded-xl text-center">
+              <p class="font-bold text-dark text-lg mb-1">Thanks — we'll be in touch within 24 hours.</p>
+              <p class="text-gray-600 text-sm">We reply to every enquiry personally, usually faster.</p>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-2">
+            <div class="sticky top-28 space-y-6">
+              <div class="bg-white rounded-2xl p-6 border border-gray-200">
+                <h3 class="font-bold text-dark mb-4" style="font-family: var(--font-heading);">What happens next</h3>
+                <ol class="space-y-4">
+                  {[
+                    'We review your enquiry and reply within 24 hours.',
+                    'We schedule a 30-minute scoping call at a time that suits you.',
+                    'We send you a scope document and contract to review.',
+                    'Once signed, your operator is assigned and onboarding starts.'
+                  ].map((step, i) => (
+                    <li class="flex items-start gap-3">
+                      <span class="w-6 h-6 rounded-full bg-purple text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
+                      <span class="text-sm text-gray-600">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div class="bg-cream rounded-2xl p-6 border border-gray-200">
+                <h3 class="font-bold text-dark mb-3" style="font-family: var(--font-heading);">Prefer email?</h3>
+                <a href="mailto:hello@inspir.uk" class="text-purple font-semibold hover:text-deep-blue transition-colors">
+                  hello@inspir.uk
+                </a>
+                <p class="text-sm text-gray-500 mt-2">We reply within 24 hours, usually faster.</p>
+
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                  <p class="text-xs text-gray-400 leading-relaxed">
+                    inspir learning LTD<br />
+                    London SW9 0PP<br />
+                    United Kingdom
+                  </p>
+                </div>
+
+                <div class="mt-4 text-xs text-gray-400">
+                  No commitment. No credit card. Just a conversation.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMessage = document.getElementById('form-success');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // TODO: Replace with actual form submission (webhook, email service, or CRM)
+    form.style.display = 'none';
+    successMessage?.classList.remove('hidden');
+  });
+</script>

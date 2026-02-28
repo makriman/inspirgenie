@@ -1,0 +1,66 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+---
+<PageLayout
+  title="Terms of Service | inspir"
+  description="Terms of service for inspir learning LTD managed ecommerce operations service."
+>
+  <Breadcrumbs items={[{ label: 'Terms of Service' }]} />
+
+  <section class="py-20 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <h1 class="text-4xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Terms of Service</h1>
+      <p class="text-gray-500 mb-12 text-sm">Last updated: January 2026</p>
+
+      <div class="space-y-10">
+
+        <div>
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">1. Service description</h2>
+          <p class="text-gray-600 leading-relaxed">inspir learning LTD ("inspir") provides managed ecommerce operations services to business clients. The service consists of a dedicated operator assigned to the client's ecommerce store, working within an agreed scope of work as documented in the client's contract and Service Level Agreement (SLA).</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">2. Contract and scope</h2>
+          <p class="text-gray-600 leading-relaxed">The specific scope of work, service levels, and commercial terms are governed by the individual client contract and SLA. These Terms of Service set out the general framework. In the event of conflict, the client contract takes precedence.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">3. Payment terms</h2>
+          <p class="text-gray-600 leading-relaxed">Services are billed monthly in advance unless otherwise agreed. Payment is due within 7 days of invoice. Failure to pay may result in suspension of the service. All prices are in GBP and exclusive of VAT where applicable.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">4. Cancellation</h2>
+          <p class="text-gray-600 leading-relaxed">Monthly contracts may be cancelled with written notice before the next billing date. No cancellation fees apply to monthly contracts. Annual contracts: please refer to your individual contract for the applicable terms.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">5. Intellectual property</h2>
+          <p class="text-gray-600 leading-relaxed">All work product created for the client — including SOPs, process documentation, templates, and reports — belongs to the client upon full payment. inspir retains no intellectual property rights over client-specific work product.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">6. Confidentiality</h2>
+          <p class="text-gray-600 leading-relaxed">Both parties agree to maintain confidentiality regarding the other's business information. inspir will not disclose client information to third parties except as required to deliver the service or as required by law.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">7. Limitation of liability</h2>
+          <p class="text-gray-600 leading-relaxed">inspir's liability to the client is limited to the fees paid in the three months preceding the event giving rise to the claim. inspir is not liable for indirect, consequential, or special losses. Nothing in these terms limits liability for fraud or death/personal injury caused by negligence.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">8. Governing law</h2>
+          <p class="text-gray-600 leading-relaxed">These terms and any contract between the parties are governed by the law of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <p class="text-gray-600 text-sm">Questions about these terms: <a href="mailto:hello@inspir.uk" class="text-purple font-semibold hover:underline">hello@inspir.uk</a></p>
+          <p class="text-gray-600 text-sm mt-2">inspir learning LTD · London SW9 0PP · Registered in England and Wales</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</PageLayout>

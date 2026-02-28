@@ -1,0 +1,238 @@
+---
+import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigation';
+---
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="banner">
+  <div class="container">
+    <nav class="flex items-center justify-between h-16 lg:h-20" aria-label="Main navigation">
+
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0" aria-label="inspir - home">
+        <img
+          src="/logos/inspir-black.png"
+          alt="inspir"
+          width="120"
+          height="40"
+          class="h-9 w-auto logo-dark"
+          style="mix-blend-mode: multiply;"
+        />
+        <img
+          src="/logos/inspir-white.png"
+          alt="inspir"
+          width="120"
+          height="40"
+          class="h-9 w-auto logo-light hidden"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden lg:flex items-center gap-8">
+
+        <!-- Services Dropdown -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 font-medium hover:text-purple transition-colors duration-150 py-2" aria-haspopup="true" aria-expanded="false">
+            Services
+            <svg class="w-4 h-4 transition-transform duration-150 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="dropdown-menu absolute top-full left-0 mt-1 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-2">
+            {serviceNavItems.map(item => (
+              <a href={item.href} class="block px-4 py-3 rounded-lg hover:bg-cream transition-colors">
+                <div class="font-semibold text-dark text-sm">{item.label}</div>
+                {item.description && <div class="text-xs text-gray-500 mt-0.5">{item.description}</div>}
+              </a>
+            ))}
+            <div class="border-t border-gray-100 mt-2 pt-2">
+              <a href="/services" class="block px-4 py-2 text-sm font-semibold text-purple hover:bg-cream rounded-lg transition-colors">
+                View all services →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Platforms Dropdown -->
+        <div class="relative group">
+          <button class="nav-link flex items-center gap-1 font-medium hover:text-purple transition-colors duration-150 py-2" aria-haspopup="true" aria-expanded="false">
+            Platforms
+            <svg class="w-4 h-4 transition-transform duration-150 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="dropdown-menu absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 p-2">
+            {platformNavItems.map(item => (
+              <a href={item.href} class="block px-4 py-3 rounded-lg hover:bg-cream transition-colors">
+                <div class="font-semibold text-dark text-sm">{item.label}</div>
+                {item.description && <div class="text-xs text-gray-500 mt-0.5">{item.description}</div>}
+              </a>
+            ))}
+            <div class="border-t border-gray-100 mt-2 pt-2">
+              <a href="/platforms" class="block px-4 py-2 text-sm font-semibold text-purple hover:bg-cream rounded-lg transition-colors">
+                All platforms →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {mainNav.map(item => (
+          <a href={item.href} class="nav-link font-medium hover:text-purple transition-colors duration-150">{item.label}</a>
+        ))}
+
+        <a href="/contact" class="ml-2 bg-electric-lime text-dark font-bold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity text-sm">
+          Get started →
+        </a>
+      </div>
+
+      <!-- Mobile: CTA + Hamburger -->
+      <div class="flex lg:hidden items-center gap-3">
+        <a href="/contact" class="bg-electric-lime text-dark font-bold px-4 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+          Get started
+        </a>
+        <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-cream/20 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-dark hidden" aria-hidden="true">
+  <div class="flex flex-col h-full overflow-y-auto">
+    <div class="flex items-center justify-between p-6 border-b border-white/10">
+      <a href="/" class="flex-shrink-0">
+        <img src="/logos/inspir-white.png" alt="inspir" class="h-9 w-auto" />
+      </a>
+      <button id="mobile-menu-close" class="p-2 text-white hover:text-electric-lime transition-colors" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex-1 p-6 space-y-2">
+      <!-- Services Accordion -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger w-full flex items-center justify-between text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">
+          Services
+          <svg class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="mobile-accordion-content hidden pl-4 pb-2 space-y-2">
+          {serviceNavItems.map(item => (
+            <a href={item.href} class="block text-gray-300 hover:text-electric-lime transition-colors py-2">{item.label}</a>
+          ))}
+          <a href="/services" class="block text-electric-lime font-semibold py-2">All services →</a>
+        </div>
+      </div>
+
+      <!-- Platforms Accordion -->
+      <div class="mobile-accordion">
+        <button class="mobile-accordion-trigger w-full flex items-center justify-between text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">
+          Platforms
+          <svg class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="mobile-accordion-content hidden pl-4 pb-2 space-y-2">
+          {platformNavItems.map(item => (
+            <a href={item.href} class="block text-gray-300 hover:text-electric-lime transition-colors py-2">{item.label}</a>
+          ))}
+          <a href="/platforms" class="block text-electric-lime font-semibold py-2">All platforms →</a>
+        </div>
+      </div>
+
+      <a href="/pricing" class="block text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">Pricing</a>
+      <a href="/about" class="block text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">About</a>
+      <a href="/blog" class="block text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">Blog</a>
+      <a href="/faq" class="block text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">FAQ</a>
+    </nav>
+
+    <div class="p-6 border-t border-white/10">
+      <a href="/contact" class="block w-full text-center bg-electric-lime text-dark font-bold py-4 rounded-xl text-lg hover:opacity-90 transition-opacity">
+        Get started →
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  #site-header {
+    background: transparent;
+    color: white;
+  }
+
+  #site-header.scrolled {
+    background: white;
+    color: var(--dark);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  #site-header.scrolled .logo-dark { display: block; }
+  #site-header.scrolled .logo-light { display: none; }
+  #site-header:not(.scrolled) .logo-dark { display: none; }
+  #site-header:not(.scrolled) .logo-light { display: block; }
+
+  #site-header.scrolled .nav-link { color: var(--dark); }
+  #site-header:not(.scrolled) .nav-link { color: rgba(255,255,255,0.9); }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const mobileClose = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  // Scroll behaviour
+  function updateHeader() {
+    if (window.scrollY > 60) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
+
+  // Mobile menu
+  function openMenu() {
+    mobileMenu?.classList.remove('hidden');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
+    mobileToggle?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.add('hidden');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
+    mobileToggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggle?.addEventListener('click', openMenu);
+  mobileClose?.addEventListener('click', closeMenu);
+
+  // Mobile accordions
+  document.querySelectorAll('.mobile-accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const content = trigger.nextElementSibling as HTMLElement;
+      const icon = trigger.querySelector('svg') as SVGElement;
+      const isOpen = !content.classList.contains('hidden');
+      content.classList.toggle('hidden', isOpen);
+      if (icon) icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+  });
+
+  // Close menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+</script>

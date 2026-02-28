@@ -1,0 +1,75 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Scoping call",
+    description: "We learn your operations, tools, volume, and timezone. You leave knowing exactly what your operator will handle."
+  },
+  {
+    number: "02",
+    title: "Contract & SLA",
+    description: "Service levels, escalation rules, responsibilities. Straightforward contract. No long-term lock-in."
+  },
+  {
+    number: "03",
+    title: "First payment",
+    description: "Monthly in advance. Onboarding starts immediately. Your operator is assigned within days."
+  },
+  {
+    number: "04",
+    title: "Two-week onboarding",
+    description: "Your operator learns your SOPs, tools, and workflows. No SOPs? We build them. No helpdesk? We set one up."
+  },
+  {
+    number: "05",
+    title: "Go live",
+    description: "Your operator starts executing. Full audit trail from day one. Weekly reports on volume, quality, and escalations."
+  }
+];
+---
+<section class="py-20 lg:py-28" style="background-color: #1e40af;">
+  <div class="container">
+    <div class="text-center mb-16">
+      <p class="text-sm font-semibold uppercase tracking-widest text-electric-lime mb-3">How it works</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-white" style="font-family: var(--font-heading);">
+        Signed today. Live in two weeks.
+      </h2>
+    </div>
+
+    <!-- Desktop: horizontal timeline -->
+    <div class="hidden lg:grid grid-cols-5 gap-6 relative">
+      <!-- Connecting line -->
+      <div class="absolute top-8 left-[10%] right-[10%] h-0.5 bg-electric-lime/30 z-0"></div>
+
+      {steps.map(step => (
+        <div class="relative z-10 text-center">
+          <div class="w-16 h-16 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center mx-auto mb-4 ring-4 ring-blue-700" style="font-family: var(--font-heading);">
+            {step.number}
+          </div>
+          <h3 class="font-bold text-white text-base mb-2" style="font-family: var(--font-heading);">{step.title}</h3>
+          <p class="text-blue-200 text-sm leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Mobile: vertical timeline -->
+    <div class="lg:hidden space-y-0 relative">
+      <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-electric-lime/30"></div>
+      {steps.map(step => (
+        <div class="relative pl-20 pb-10 last:pb-0">
+          <div class="absolute left-0 w-16 h-16 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center ring-4 ring-blue-700" style="font-family: var(--font-heading);">
+            {step.number}
+          </div>
+          <h3 class="font-bold text-white text-base mb-2 pt-4" style="font-family: var(--font-heading);">{step.title}</h3>
+          <p class="text-blue-200 text-sm leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-16">
+      <a href="/how-it-works" class="text-electric-lime font-semibold hover:underline text-sm">
+        See the full process in detail →
+      </a>
+    </div>
+  </div>
+</section>

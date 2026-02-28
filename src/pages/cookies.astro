@@ -1,0 +1,72 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+---
+<PageLayout
+  title="Cookie Policy | inspir"
+  description="Cookie policy for inspir.uk. How we use cookies and how to control them."
+>
+  <Breadcrumbs items={[{ label: 'Cookie Policy' }]} />
+
+  <section class="py-20 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <h1 class="text-4xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Cookie Policy</h1>
+      <p class="text-gray-500 mb-12 text-sm">Last updated: January 2026</p>
+
+      <div class="space-y-10">
+
+        <div>
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">What are cookies?</h2>
+          <p class="text-gray-600 leading-relaxed">Cookies are small text files stored on your device when you visit a website. They help websites remember information about your visit and improve your experience on return visits.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">Cookies we use</h2>
+
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-2 h-2 rounded-full bg-purple flex-shrink-0"></span>
+                <h3 class="font-bold text-dark" style="font-family: var(--font-heading);">Strictly necessary cookies</h3>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed">These cookies are required for the website to function. They cannot be disabled. They do not track personal information and are not used for marketing purposes.</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-2 h-2 rounded-full bg-deep-blue flex-shrink-0"></span>
+                <h3 class="font-bold text-dark" style="font-family: var(--font-heading);">Analytics cookies</h3>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed">We use privacy-respecting analytics to understand how visitors use our site. These cookies collect anonymous, aggregated data — pages visited, time on site, referral source. No personally identifiable information is stored. You can opt out via your browser settings.</p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-2 h-2 rounded-full bg-coral flex-shrink-0"></span>
+                <h3 class="font-bold text-dark" style="font-family: var(--font-heading);">Preference cookies</h3>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed">These cookies remember your preferences (such as cookie consent status) to improve your experience. They are not used for tracking or advertising purposes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">How to control cookies</h2>
+          <p class="text-gray-600 leading-relaxed">You can control and delete cookies through your browser settings. Most browsers allow you to refuse new cookies, delete existing cookies, and receive a notification when a new cookie is set.</p>
+          <p class="text-gray-600 mt-4">Note that disabling certain cookies may affect the functionality of this website.</p>
+          <p class="text-gray-600 mt-4">For more information about managing cookies, visit <a href="https://www.ico.org.uk" class="text-purple font-semibold hover:underline" rel="noopener noreferrer" target="_blank">ico.org.uk</a>.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Third-party cookies</h2>
+          <p class="text-gray-600 leading-relaxed">We do not use third-party advertising cookies. Any third-party tools we use (such as analytics) are configured to use only first-party, privacy-respecting cookies where possible.</p>
+        </div>
+
+        <div class="border-t border-gray-200 pt-10">
+          <p class="text-gray-600 text-sm">Questions about our cookie use: <a href="mailto:hello@inspir.uk" class="text-purple font-semibold hover:underline">hello@inspir.uk</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</PageLayout>

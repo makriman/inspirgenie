@@ -1,0 +1,86 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import CTA from '../../components/global/CTA.astro';
+import { platforms } from '../../data/platforms';
+const platform = platforms.find(p => p.slug === 'magento')!;
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Magento Operations Support",
+  "description": "Dedicated Magento operator for UK businesses. Complex catalogue, orders, customer management — fully managed.",
+  "provider": { "@type": "Organization", "name": "inspir learning LTD" },
+  "serviceType": "Magento Operations Management",
+  "areaServed": "GB"
+};
+---
+<PageLayout
+  title="Magento Operations Support UK | inspir"
+  description="Hire a dedicated Magento operator for £999/month. Complex catalogue, orders, customer management — handled by an experienced Magento operator."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+  <Breadcrumbs items={[{ label: 'Platforms', href: '/platforms' }, { label: 'Magento' }]} />
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Magento</p>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">Magento operations support for UK businesses.</h1>
+      <p class="text-xl text-gray-600 mb-12">Magento is the most operationally complex ecommerce platform in common use. Complex catalogue structures, multi-store management, configurable products, attribute sets, cache management — your dedicated Magento operator handles it.</p>
+      <div class="mb-16 bg-white rounded-2xl p-8 border border-gray-200">
+        <h2 class="text-2xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">The Magento operational challenge</h2>
+        <div class="space-y-4 text-gray-600">
+          <p>Magento 2 and Adobe Commerce require constant operational attention. Configurable, grouped, and bundle products need correct setup. Attribute sets must be structured properly. Cache management and indexing need monitoring. Multi-store operations require careful coordination.</p>
+          <p>Your dedicated inspir operator knows Magento properly and handles the daily admin so you can focus on growth. Not someone learning on the job — an operator who understands the Magento admin inside out and can work across complex catalogue structures without guidance.</p>
+        </div>
+      </div>
+      <div class="mb-16">
+        <h2 class="text-2xl font-extrabold text-dark mb-8" style="font-family: var(--font-heading);">What your Magento operator handles</h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {platform.features.map(feature => (
+            <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200">
+              <svg class="w-5 h-5 text-purple flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
+              <span class="text-sm text-gray-700">{feature}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="mb-16 bg-white rounded-2xl p-8 border border-gray-200">
+        <h2 class="text-2xl font-extrabold text-dark mb-5" style="font-family: var(--font-heading);">Magento ecosystem expertise</h2>
+        <div class="flex flex-wrap gap-2">
+          {platform.apps.map(app => (
+            <span class="bg-cream text-dark text-sm font-medium px-4 py-2 rounded-xl border border-gray-200">{app}</span>
+          ))}
+        </div>
+        <p class="text-gray-500 text-sm mt-4">Using something not on this list? We train on it during onboarding.</p>
+      </div>
+      <div class="mb-16 bg-electric-lime/20 rounded-2xl p-8 border border-electric-lime/40">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+          <div>
+            <p class="font-bold text-dark text-xl mb-1" style="font-family: var(--font-heading);">Dedicated Magento operator</p>
+            <p class="text-gray-600 text-sm">40 hours per week · all Magento tasks · cancel anytime</p>
+          </div>
+          <div class="text-right">
+            <p class="text-3xl font-extrabold text-coral" style="font-family: var(--font-heading);">£999/mo</p>
+            <a href="/pricing" class="text-sm text-purple font-semibold hover:underline">See full pricing →</a>
+          </div>
+        </div>
+      </div>
+      <div class="mb-12 p-6 bg-white rounded-2xl border border-gray-200">
+        <h3 class="font-bold text-dark mb-3" style="font-family: var(--font-heading);">We also support</h3>
+        <div class="flex flex-wrap gap-4">
+          <a href="/platforms/shopify" class="text-sm text-purple font-semibold hover:underline">Shopify</a>
+          <span class="text-gray-300">·</span>
+          <a href="/platforms/woocommerce" class="text-sm text-purple font-semibold hover:underline">WooCommerce</a>
+          <span class="text-gray-300">·</span>
+          <a href="/platforms/bigcommerce" class="text-sm text-purple font-semibold hover:underline">BigCommerce</a>
+          <span class="text-gray-300">·</span>
+          <a href="/platforms" class="text-sm text-purple font-semibold hover:underline">All platforms</a>
+        </div>
+      </div>
+      <div class="flex gap-4 flex-wrap">
+        <a href="/contact" class="bg-electric-lime text-dark font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">Get started →</a>
+        <a href="/services" class="border border-gray-300 text-dark font-semibold px-8 py-4 rounded-xl hover:border-purple transition-colors">See all services →</a>
+      </div>
+    </div>
+  </section>
+  <CTA />
+</PageLayout>

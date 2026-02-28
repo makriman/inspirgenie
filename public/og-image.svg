@@ -1,0 +1,8 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#1e40af"/>
+  <rect width="1200" height="630" fill="url(#noise)" opacity="0.04"/>
+  <text x="100" y="260" font-family="sans-serif" font-size="96" font-weight="bold" fill="white">inspir</text>
+  <text x="100" y="340" font-family="sans-serif" font-size="38" fill="#93c5fd">Ecommerce operations, fully managed.</text>
+  <text x="100" y="410" font-family="sans-serif" font-size="32" fill="#d9f99d">£999/month · 40 hrs/week · All platforms</text>
+  <text x="100" y="530" font-family="sans-serif" font-size="22" fill="rgba(255,255,255,0.5)">inspir.uk</text>
+</svg>

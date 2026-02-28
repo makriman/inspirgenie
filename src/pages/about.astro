@@ -1,0 +1,156 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import CTA from '../components/global/CTA.astro';
+import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+
+const siteUrl = 'https://inspir.uk';
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "inspir learning LTD",
+  "description": "Managed ecommerce operations for UK businesses. One dedicated operator, £999/month.",
+  "url": siteUrl,
+  "email": "hello@inspir.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "London SW9 0PP",
+    "addressCountry": "GB"
+  },
+  "areaServed": "GB",
+  "priceRange": "£999/month"
+};
+---
+<PageLayout
+  title="About inspir — Ecommerce Ops, London | inspir"
+  description="inspir learning LTD. Managed ecommerce operations for UK businesses. One operator, £999/month. Based in London SW9."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(localBusinessSchema)} />
+  <Breadcrumbs items={[{ label: 'About' }]} />
+
+  <!-- Hero -->
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">About inspir</p>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-8 leading-tight" style="font-family: var(--font-heading);">
+        Built for UK ecommerce businesses.
+      </h1>
+
+      <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+        <p>
+          Running an ecommerce store in the UK means wearing every hat. Marketing, finance, operations, support — all you, all at once. That's unsustainable at any revenue level. Your store deserves dedicated operational support, not whatever's left of you at 10pm.
+        </p>
+        <p>
+          We built inspir because the gap between "I can't afford to hire someone full-time" and "I can't keep doing this alone" is where most UK ecommerce businesses get stuck. One dedicated operator, 40 hours a week, at a fraction of the cost of a full-time hire.
+        </p>
+        <p>
+          We're not a freelancer marketplace. We're not a chatbot. We're a managed operations partner — which means we vet, train, supervise, and stand behind the work our operators do.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we're different -->
+  <section class="py-20 lg:py-24" style="background-color: #1e40af;">
+    <div class="container">
+      <div class="text-center mb-16">
+        <p class="text-sm font-semibold uppercase tracking-widest text-electric-lime mb-3">What sets us apart</p>
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-white" style="font-family: var(--font-heading);">
+          Not a platform. Not a marketplace.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {[
+          {
+            icon: '👤',
+            title: 'Dedicated, not shared',
+            desc: 'Your operator works for you, not split across ten clients. One person, fully focused on your store and your processes.'
+          },
+          {
+            icon: '📋',
+            title: 'Documented, not ad hoc',
+            desc: 'Every action is logged. Weekly reports. Full audit trail. You always know what\'s being done, when, and why.'
+          },
+          {
+            icon: '🤖',
+            title: 'AI-trained, not traditional',
+            desc: 'Our operators work with modern AI tools to move faster and catch more. Faster ticket drafts, smarter categorisation, better QA.'
+          },
+          {
+            icon: '🛡️',
+            title: 'Managed, not freelance',
+            desc: 'We vet, train, and supervise every operator. If something goes wrong, you contact us. We fix it. No chasing someone on Upwork.'
+          }
+        ].map(item => (
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div class="text-3xl mb-4">{item.icon}</div>
+            <h3 class="font-bold text-white text-xl mb-3" style="font-family: var(--font-heading);">{item.title}</h3>
+            <p class="text-blue-200 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Company details -->
+  <section class="py-20 lg:py-24 bg-white">
+    <div class="container max-w-3xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-dark mb-10 text-center" style="font-family: var(--font-heading);">Company details</h2>
+
+      <div class="bg-cream rounded-2xl p-8 border border-gray-200">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-bold text-dark mb-4 uppercase text-xs tracking-widest text-gray-400">Registered company</h3>
+            <p class="font-bold text-dark text-lg">inspir learning LTD</p>
+            <p class="text-gray-600">Registered in England and Wales</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-4 uppercase text-xs tracking-widest text-gray-400">Address</h3>
+            <p class="text-gray-600">London SW9 0PP<br />United Kingdom</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-4 uppercase text-xs tracking-widest text-gray-400">Contact</h3>
+            <a href="mailto:hello@inspir.uk" class="text-purple font-semibold hover:text-deep-blue transition-colors">hello@inspir.uk</a>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark mb-4 uppercase text-xs tracking-widest text-gray-400">Response time</h3>
+            <p class="text-gray-600">Within 24 hours. Usually faster.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 p-6 bg-cream rounded-xl border border-gray-200">
+        <h3 class="font-bold text-dark mb-3">UK-focused from the start</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          GBP pricing, UK business hours coverage, GDPR compliance, and operators briefed on UK consumer expectations. We price in pounds and understand the UK ecommerce market — not an afterthought.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-20 lg:py-24 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-3">How we work</p>
+        <h2 class="text-3xl font-extrabold text-dark" style="font-family: var(--font-heading);">Four things we don't compromise on.</h2>
+      </div>
+
+      <div class="grid grid-cols-2 gap-6">
+        {[
+          { value: 'Transparency', desc: 'You see everything. Reports, trails, costs. No black boxes.' },
+          { value: 'Ownership', desc: 'Your operator treats your store as their own responsibility.' },
+          { value: 'Precision', desc: 'Right first time. Every listing, every ticket, every order.' },
+          { value: 'Adaptability', desc: 'Your processes change. Your operator adapts without drama.' }
+        ].map(item => (
+          <div class="bg-white rounded-2xl p-6 border border-gray-200">
+            <h3 class="font-extrabold text-dark text-xl mb-2" style="font-family: var(--font-heading);">{item.value}</h3>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</PageLayout>

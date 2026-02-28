@@ -1,0 +1,46 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import CTA from '../../components/global/CTA.astro';
+import { platforms, allPlatforms } from '../../data/platforms';
+---
+<PageLayout
+  title="All Ecommerce Platforms Supported | inspir"
+  description="Shopify, WooCommerce, Magento, BigCommerce, Wix, Squarespace and more — one dedicated operator, every platform, £999/month."
+>
+  <Breadcrumbs items={[{ label: 'Platforms' }]} />
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container">
+      <div class="text-center mb-16 max-w-2xl mx-auto">
+        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Platforms</p>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">We work with every ecommerce platform.</h1>
+        <p class="text-xl text-gray-600">Your operator is trained on your specific platform. Not generic knowledge — your actual admin, your actual tools.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+        {platforms.map(platform => (
+          <a href={`/platforms/${platform.slug}`} class="group bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg hover:border-purple/30 transition-all duration-200">
+            <h2 class="text-2xl font-extrabold text-dark mb-3 group-hover:text-purple transition-colors" style="font-family: var(--font-heading);">{platform.name}</h2>
+            <p class="text-gray-600 mb-5 text-sm">{platform.longDescription}</p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              {platform.features.slice(0, 3).map(f => (
+                <span class="text-xs text-gray-500 bg-cream px-3 py-1 rounded-full">{f}</span>
+              ))}
+            </div>
+            <span class="text-sm font-semibold text-purple group-hover:text-deep-blue transition-colors">{platform.name} operations support →</span>
+          </a>
+        ))}
+      </div>
+      <div class="bg-white rounded-2xl p-8 border border-gray-200 max-w-4xl mx-auto">
+        <h2 class="text-xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Also supported</h2>
+        <p class="text-gray-600 text-sm mb-6">These platforms don't have dedicated pages yet, but our operators support them too.</p>
+        <div class="flex flex-wrap gap-4">
+          {allPlatforms.filter(p => !platforms.find(mp => mp.slug === p.slug)).map(p => (
+            <span class="bg-cream text-dark font-semibold px-4 py-2 rounded-xl text-sm border border-gray-200">{p.name}</span>
+          ))}
+        </div>
+        <p class="text-sm text-gray-500 mt-6">Not sure if we support your platform? <a href="/contact" class="text-purple font-semibold hover:underline">Get in touch</a> — we almost certainly do.</p>
+      </div>
+    </div>
+  </section>
+  <CTA />
+</PageLayout>

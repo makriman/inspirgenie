@@ -1,0 +1,52 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+
+const siteUrl = 'https://inspir.uk';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+    ...items.map((item, i) => ({
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": item.label,
+      ...(item.href ? { "item": `${siteUrl}${item.href}` } : {})
+    }))
+  ]
+};
+---
+<nav class={`py-3 border-b border-gray-200 bg-cream ${className}`} aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="flex items-center gap-2 text-sm text-gray-500 flex-wrap">
+      <li>
+        <a href="/" class="hover:text-purple transition-colors">Home</a>
+      </li>
+      {items.map((item, i) => (
+        <>
+          <li class="text-gray-300">/</li>
+          <li>
+            {item.href && i < items.length - 1 ? (
+              <a href={item.href} class="hover:text-purple transition-colors">{item.label}</a>
+            ) : (
+              <span class="text-dark font-medium">{item.label}</span>
+            )}
+          </li>
+        </>
+      ))}
+    </ol>
+  </div>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

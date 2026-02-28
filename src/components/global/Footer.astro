@@ -1,0 +1,98 @@
+---
+import { footerNav } from '../../data/navigation';
+---
+<footer class="bg-dark text-gray-400" role="contentinfo">
+  <div class="container py-16 lg:py-20">
+
+    <!-- Top: Logo + tagline + nav columns -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-gray-700">
+
+      <!-- Logo + tagline -->
+      <div class="lg:col-span-1">
+        <a href="/" class="inline-block mb-4" aria-label="inspir - home">
+          <img src="/logos/inspir-white.png" alt="inspir" class="h-9 w-auto" />
+        </a>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Ecommerce operations,<br />fully managed.
+        </p>
+        <p class="mt-4 text-xs text-gray-500">
+          One operator. 40 hours a week.<br />£999/month.
+        </p>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Services</h3>
+        <ul class="space-y-2.5">
+          {footerNav.services.map(item => (
+            <li>
+              <a href={item.href} class="text-sm hover:text-electric-lime transition-colors duration-150">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Platforms -->
+      <div>
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Platforms</h3>
+        <ul class="space-y-2.5">
+          {footerNav.platforms.map(item => (
+            <li>
+              <a href={item.href} class="text-sm hover:text-electric-lime transition-colors duration-150">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Company</h3>
+        <ul class="space-y-2.5">
+          {footerNav.company.map(item => (
+            <li>
+              <a href={item.href} class="text-sm hover:text-electric-lime transition-colors duration-150">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Legal</h3>
+        <ul class="space-y-2.5">
+          {footerNav.legal.map(item => (
+            <li>
+              <a href={item.href} class="text-sm hover:text-electric-lime transition-colors duration-150">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-8">
+          <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-3">Contact</h3>
+          <a href="mailto:hello@inspir.uk" class="text-sm hover:text-electric-lime transition-colors">
+            hello@inspir.uk
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom: company info + copyright -->
+    <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-xs text-gray-500">
+        inspir learning LTD · London SW9 0PP ·
+        <a href="mailto:hello@inspir.uk" class="hover:text-electric-lime transition-colors">hello@inspir.uk</a>
+      </p>
+      <p class="text-xs text-gray-500">
+        © 2026 inspir learning LTD. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

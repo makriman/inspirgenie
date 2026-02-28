@@ -1,0 +1,35 @@
+---
+import { allPlatforms } from '../../data/platforms';
+---
+<section class="py-16 bg-cream border-b border-gray-200">
+  <div class="container">
+    <p class="text-center text-sm font-semibold uppercase tracking-widest text-gray-400 mb-10">
+      Works with your platform, whatever it is.
+    </p>
+
+    <!-- Desktop: static grid -->
+    <div class="hidden md:flex items-center justify-center gap-8 lg:gap-12 flex-wrap">
+      {allPlatforms.map(platform => (
+        <a
+          href={platform.slug ? `/platforms/${platform.slug}` : '/platforms'}
+          class="group text-gray-400 hover:text-dark transition-colors duration-200 font-bold text-lg lg:text-xl tracking-tight"
+          style="font-family: var(--font-heading);"
+          aria-label={platform.name}
+        >
+          {platform.name}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile: scrolling -->
+    <div class="md:hidden overflow-hidden">
+      <div class="flex gap-8 logo-scroll whitespace-nowrap" style="width: max-content;">
+        {[...allPlatforms, ...allPlatforms].map((platform, i) => (
+          <span class="text-gray-400 font-bold text-lg tracking-tight" style="font-family: var(--font-heading);" key={i}>
+            {platform.name}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

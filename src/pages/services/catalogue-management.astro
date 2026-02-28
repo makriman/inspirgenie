@@ -1,0 +1,111 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import CTA from '../../components/global/CTA.astro';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Ecommerce Catalogue Management",
+  "description": "Product uploads, edits, variants, SEO titles, image QA — your catalogue managed daily.",
+  "provider": { "@type": "Organization", "name": "inspir learning LTD" },
+  "serviceType": "Product Catalogue Management",
+  "areaServed": "GB"
+};
+---
+<PageLayout
+  title="Product Catalogue Management Service | inspir"
+  description="Product uploads, variant management, SEO titles, image QA, collection organisation — your catalogue, managed daily."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+  <Breadcrumbs items={[{ label: 'Services', href: '/services' }, { label: 'Catalogue Management' }]} />
+
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Catalogue Management</p>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
+        Product uploads, edits, and catalogue ops.
+      </h1>
+      <p class="text-xl text-gray-600 mb-12">
+        A well-maintained catalogue is the foundation of every ecommerce operation. Your operator keeps it accurate, optimised, and current.
+      </p>
+
+      <!-- What's covered -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-extrabold text-dark mb-8" style="font-family: var(--font-heading);">What your operator handles</h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {[
+            'New product uploads and data entry',
+            'Product edits and bulk updates',
+            'Variant and option management',
+            'SEO title and description writing',
+            'Image upload and quality assurance',
+            'Collection and category organisation',
+            'Product tagging and metadata',
+            'Bulk CSV import and data cleaning',
+            'Metafield and custom field management',
+            'Price updates and promotional pricing',
+            'Product visibility and status management',
+            'Cross-listing management',
+          ].map(item => (
+            <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200">
+              <svg class="w-5 h-5 text-purple flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-sm text-gray-700">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <div class="mb-16 bg-white rounded-2xl p-8 border border-gray-200">
+        <h2 class="text-2xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">How your operator works</h2>
+        <div class="space-y-4 text-gray-600">
+          <p>Your operator follows your catalogue standards — title format, description structure, image specs, tag taxonomy. If you don't have documented standards, we build them during onboarding.</p>
+          <p>SEO copy is written with your target keywords in mind, not generic filler. Your operator understands the difference between optimised product content and keyword stuffing.</p>
+          <p>Bulk uploads are handled via CSV or direct platform admin, depending on what's faster and more reliable for your setup.</p>
+        </div>
+      </div>
+
+      <!-- Common scenarios -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-extrabold text-dark mb-8" style="font-family: var(--font-heading);">Common scenarios</h2>
+        <div class="space-y-4">
+          {[
+            { title: 'New product launches', desc: 'New season, new collection, new supplier range. Your operator uploads everything with proper titles, descriptions, images, and tags — ready to go live on schedule.' },
+            { title: 'Catalogue cleanup', desc: 'Years of inconsistent uploads have left your catalogue messy. Your operator conducts a systematic audit, standardises titles, fills gaps in descriptions, and fixes image quality issues.' },
+            { title: 'Ongoing supplier feeds', desc: 'You receive weekly product feeds from multiple suppliers. Your operator processes them, maps data to your catalogue structure, and keeps everything current.' },
+          ].map(s => (
+            <div class="p-6 bg-cream rounded-xl border border-gray-200">
+              <h3 class="font-bold text-dark mb-2" style="font-family: var(--font-heading);">{s.title}</h3>
+              <p class="text-gray-600 text-sm">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Platforms -->
+      <div class="mb-16 p-6 bg-white rounded-2xl border border-gray-200">
+        <h2 class="text-xl font-extrabold text-dark mb-3" style="font-family: var(--font-heading);">Works on every platform</h2>
+        <p class="text-gray-600 text-sm">Full catalogue management across Shopify, WooCommerce, Magento, BigCommerce, and all major platforms. Familiar with complex catalogue structures including configurable products, attribute sets, and variant hierarchies.</p>
+      </div>
+
+      <!-- Related services -->
+      <div class="mb-16">
+        <h2 class="text-xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Related services</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/services/inventory-operations" class="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple transition-colors text-sm font-semibold text-purple">Inventory Operations →</a>
+          <a href="/services/order-management" class="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple transition-colors text-sm font-semibold text-purple">Order Management →</a>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <a href="/contact" class="bg-electric-lime text-dark font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">Get started →</a>
+        <a href="/pricing" class="border border-gray-300 text-dark font-semibold px-8 py-4 rounded-xl hover:border-purple transition-colors">See pricing →</a>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</PageLayout>

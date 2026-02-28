@@ -1,0 +1,113 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import CTA from '../../components/global/CTA.astro';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Ecommerce Customer Support",
+  "description": "Dedicated ecommerce customer support management — email, live chat, helpdesk tickets, all channels fully managed.",
+  "provider": { "@type": "Organization", "name": "inspir learning LTD" },
+  "serviceType": "Ecommerce Customer Support",
+  "areaServed": "GB"
+};
+---
+<PageLayout
+  title="Ecommerce Customer Support, Managed | inspir"
+  description="Outsource your ecommerce customer support to a dedicated operator. Email, live chat, helpdesk tickets — all channels, all platforms."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+  <Breadcrumbs items={[{ label: 'Services', href: '/services' }, { label: 'Customer Support' }]} />
+
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Customer Support</p>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
+        Ecommerce customer support, fully managed.
+      </h1>
+      <p class="text-xl text-gray-600 mb-12">
+        Your customers need answers. Fast. Your dedicated operator handles every support channel — email, live chat, helpdesk tickets — from day one.
+      </p>
+
+      <!-- What's covered -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-extrabold text-dark mb-8" style="font-family: var(--font-heading);">What your operator handles</h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {[
+            'WISMO (where is my order) queries',
+            'Order status updates and tracking',
+            'Return and exchange requests',
+            'Refund processing per your policy',
+            'Live chat management',
+            'Email inbox management',
+            'Helpdesk ticket triage and resolution',
+            'Escalation handling and documentation',
+            'Post-resolution follow-ups',
+            'Customer account queries',
+            'Subscription and billing queries',
+            'Complaint handling and resolution',
+            'Brand voice maintained across all channels',
+            'Template creation and management',
+          ].map(item => (
+            <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200">
+              <svg class="w-5 h-5 text-purple flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-sm text-gray-700">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <div class="mb-16 bg-white rounded-2xl p-8 border border-gray-200">
+        <h2 class="text-2xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">How your operator works</h2>
+        <div class="space-y-4 text-gray-600">
+          <p>During the two-week onboarding, your operator learns your brand voice, return policy, escalation rules, and helpdesk setup. They read your existing templates, ask questions, and shadow your current process before going live.</p>
+          <p>Once live, they handle tier-1 support independently. Anything outside their scope — account-level disputes, legal complaints, media enquiries — escalates to you per the agreed rules. You see everything through weekly reports and your helpdesk audit trail.</p>
+          <p>Most clients see response times drop significantly within the first two weeks. With a dedicated operator focused solely on support, tickets don't stack up.</p>
+        </div>
+      </div>
+
+      <!-- Common scenarios -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-extrabold text-dark mb-8" style="font-family: var(--font-heading);">Common scenarios</h2>
+        <div class="space-y-4">
+          {[
+            { title: 'High ticket volume', desc: "You're getting 50+ support tickets a day and response times are slipping. Your operator takes over tier-1 support, resolves routine queries, and escalates edge cases — with full documentation on every ticket." },
+            { title: 'No helpdesk setup', desc: "You're managing support from a shared Gmail inbox. Your operator sets up a proper helpdesk (Gorgias, Freshdesk, or similar), creates your first templates, and gets everything organised during onboarding." },
+            { title: 'Post-holiday backlog', desc: "You've just had a busy period and support is weeks behind. Your operator clears the backlog systematically, categorises the ticket types, and sets up processes to prevent it happening again." },
+          ].map(s => (
+            <div class="p-6 bg-cream rounded-xl border border-gray-200">
+              <h3 class="font-bold text-dark mb-2" style="font-family: var(--font-heading);">{s.title}</h3>
+              <p class="text-gray-600 text-sm">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Platforms -->
+      <div class="mb-16 p-6 bg-white rounded-2xl border border-gray-200">
+        <h2 class="text-xl font-extrabold text-dark mb-3" style="font-family: var(--font-heading);">Works on every platform</h2>
+        <p class="text-gray-600 text-sm">Shopify, WooCommerce, Magento, BigCommerce, Wix, Squarespace, and more. Compatible with Gorgias, Zendesk, Freshdesk, Re:amaze, and other helpdesks.</p>
+      </div>
+
+      <!-- Related services -->
+      <div class="mb-16">
+        <h2 class="text-xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Related services</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/services/order-management" class="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple transition-colors text-sm font-semibold text-purple">Order Management →</a>
+          <a href="/services/returns-refunds" class="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple transition-colors text-sm font-semibold text-purple">Returns &amp; Refunds →</a>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <a href="/contact" class="bg-electric-lime text-dark font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">Get started →</a>
+        <a href="/pricing" class="border border-gray-300 text-dark font-semibold px-8 py-4 rounded-xl hover:border-purple transition-colors">See pricing →</a>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</PageLayout>

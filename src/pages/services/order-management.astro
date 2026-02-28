@@ -1,0 +1,111 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import CTA from '../../components/global/CTA.astro';
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Ecommerce Order Management",
+  "description": "Dedicated ecommerce order management — processing, fulfilment coordination, refunds, chargebacks, all handled.",
+  "provider": { "@type": "Organization", "name": "inspir learning LTD" },
+  "serviceType": "Ecommerce Order Management",
+  "areaServed": "GB"
+};
+---
+<PageLayout
+  title="Ecommerce Order Management Support | inspir"
+  description="From order processing to refund handling and chargeback documentation. Your dedicated operator manages it all."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+  <Breadcrumbs items={[{ label: 'Services', href: '/services' }, { label: 'Order Management' }]} />
+
+  <section class="py-20 lg:py-28 bg-cream">
+    <div class="container max-w-3xl mx-auto">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Order Management</p>
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
+        Order processing and fulfilment, handled.
+      </h1>
+      <p class="text-xl text-gray-600 mb-12">
+        Every order from placement to resolution. Your operator handles processing, coordination, refunds, and the paperwork that comes with it.
+      </p>
+
+      <!-- What's covered -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-extrabold text-dark mb-8" style="font-family: var(--font-heading);">What your operator handles</h2>
+        <div class="grid sm:grid-cols-2 gap-3">
+          {[
+            'Order processing and confirmation',
+            'Fulfilment coordination with 3PLs',
+            'Order editing and modifications',
+            'Cancellation processing',
+            'Refund issuing per your policy',
+            'Payment discrepancy investigation',
+            'Chargeback documentation and response',
+            'Draft order creation and management',
+            'Wholesale and B2B order handling',
+            'Address correction and re-shipment',
+            'Split shipment coordination',
+            'Pre-order and backorder management',
+          ].map(item => (
+            <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200">
+              <svg class="w-5 h-5 text-purple flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-sm text-gray-700">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- How it works -->
+      <div class="mb-16 bg-white rounded-2xl p-8 border border-gray-200">
+        <h2 class="text-2xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">How your operator works</h2>
+        <div class="space-y-4 text-gray-600">
+          <p>Your operator follows your fulfilment rules precisely. They know when to escalate to your 3PL, when to issue a refund without approval, and when to flag an order for your review. Every decision outside pre-agreed rules gets escalated.</p>
+          <p>Chargeback documentation is handled systematically — your operator knows what evidence your payment provider needs and compiles it correctly, improving your dispute win rate.</p>
+          <p>Weekly reports give you full visibility on order volume, refund rates, cancellation reasons, and any patterns worth your attention.</p>
+        </div>
+      </div>
+
+      <!-- Common scenarios -->
+      <div class="mb-16">
+        <h2 class="text-2xl font-extrabold text-dark mb-8" style="font-family: var(--font-heading);">Common scenarios</h2>
+        <div class="space-y-4">
+          {[
+            { title: 'High order volume', desc: 'Hundreds of orders daily across multiple channels. Your operator processes them systematically, coordinates with your 3PL, and handles the exceptions — without you needing to be involved in the routine.' },
+            { title: 'Chargeback management', desc: 'Chargebacks are eating into your margins. Your operator handles the documentation process, compiling evidence and submitting responses on time — improving your dispute win rate.' },
+            { title: 'Wholesale orders', desc: 'Large B2B orders need manual handling and custom invoicing. Your operator manages the process from draft order to fulfilment confirmation.' },
+          ].map(s => (
+            <div class="p-6 bg-cream rounded-xl border border-gray-200">
+              <h3 class="font-bold text-dark mb-2" style="font-family: var(--font-heading);">{s.title}</h3>
+              <p class="text-gray-600 text-sm">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Platforms -->
+      <div class="mb-16 p-6 bg-white rounded-2xl border border-gray-200">
+        <h2 class="text-xl font-extrabold text-dark mb-3" style="font-family: var(--font-heading);">Works on every platform</h2>
+        <p class="text-gray-600 text-sm">Full order management support across Shopify, WooCommerce, Magento, BigCommerce, and all major ecommerce platforms. Compatible with ShipStation, Shippo, and major 3PL portals.</p>
+      </div>
+
+      <!-- Related services -->
+      <div class="mb-16">
+        <h2 class="text-xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Related services</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <a href="/services/customer-support" class="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple transition-colors text-sm font-semibold text-purple">Customer Support →</a>
+          <a href="/services/returns-refunds" class="p-4 bg-white rounded-xl border border-gray-200 hover:border-purple transition-colors text-sm font-semibold text-purple">Returns &amp; Refunds →</a>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <a href="/contact" class="bg-electric-lime text-dark font-bold px-8 py-4 rounded-xl hover:opacity-90 transition-opacity">Get started →</a>
+        <a href="/pricing" class="border border-gray-300 text-dark font-semibold px-8 py-4 rounded-xl hover:border-purple transition-colors">See pricing →</a>
+      </div>
+    </div>
+  </section>
+
+  <CTA />
+</PageLayout>

@@ -1,0 +1,51 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import PlatformStrip from '../components/home/PlatformStrip.astro';
+import ServicesGrid from '../components/home/ServicesGrid.astro';
+import HowItWorks from '../components/home/HowItWorks.astro';
+import PricingPreview from '../components/home/PricingPreview.astro';
+import Testimonials from '../components/home/Testimonials.astro';
+import FAQPreview from '../components/home/FAQPreview.astro';
+import CTA from '../components/global/CTA.astro';
+
+const siteUrl = 'https://inspir.uk';
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "inspir — Managed Ecommerce Operations",
+  "description": "Hire a dedicated ecommerce operator for £999/month. 40 hours a week, all platforms, cancel anytime.",
+  "provider": {
+    "@type": "Organization",
+    "name": "inspir learning LTD",
+    "url": siteUrl
+  },
+  "areaServed": "GB",
+  "offers": {
+    "@type": "Offer",
+    "price": "999",
+    "priceCurrency": "GBP",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "999",
+      "priceCurrency": "GBP",
+      "unitText": "MONTH"
+    }
+  }
+};
+---
+<PageLayout
+  title="Ecommerce Operations, Fully Managed | inspir"
+  description="Hire a dedicated ecommerce operator for £999/month. 40 hours a week, all platforms, cancel anytime. Customer support, orders, catalogue, returns — fully managed."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(homeSchema)} />
+
+  <Hero />
+  <PlatformStrip />
+  <ServicesGrid />
+  <HowItWorks />
+  <PricingPreview />
+  <Testimonials />
+  <FAQPreview />
+  <CTA />
+</PageLayout>

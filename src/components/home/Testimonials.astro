@@ -1,0 +1,35 @@
+---
+import { testimonials } from '../../data/testimonials';
+---
+<!-- TODO: Replace with real testimonials when available -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="container">
+    <div class="text-center mb-16">
+      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-3">What clients say</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-dark" style="font-family: var(--font-heading);">
+        Results that speak for themselves.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(t => (
+        <div class="bg-white border border-gray-200 rounded-2xl p-8 border-l-4" style={`border-left-color: #fb7185;`}>
+          <p class="text-gray-700 leading-relaxed mb-6 italic">"{t.quote}"</p>
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+              style={`background-color: ${t.avatarColor};`}
+            >
+              {t.initials}
+            </div>
+            <div>
+              <p class="font-bold text-dark text-sm">{t.name}</p>
+              <p class="text-gray-500 text-xs">{t.role}, {t.company}</p>
+              <p class="text-xs text-purple mt-0.5">{t.platform}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

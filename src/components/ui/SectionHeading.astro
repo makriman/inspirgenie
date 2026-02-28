@@ -1,0 +1,21 @@
+---
+interface Props {
+  tag?: 'h1' | 'h2' | 'h3';
+  eyebrow?: string;
+  class?: string;
+  align?: 'left' | 'center';
+  light?: boolean;
+}
+
+const { tag: Tag = 'h2', eyebrow, class: className = '', align = 'center', light = false } = Astro.props;
+---
+<div class={`${align === 'center' ? 'text-center' : 'text-left'} ${className}`}>
+  {eyebrow && (
+    <p class={`text-sm font-semibold uppercase tracking-widest mb-3 ${light ? 'text-electric-lime' : 'text-purple'}`}>
+      {eyebrow}
+    </p>
+  )}
+  <Tag class={`text-3xl lg:text-4xl font-extrabold ${light ? 'text-white' : 'text-dark'}`} style="font-family: var(--font-heading);">
+    <slot />
+  </Tag>
+</div>
