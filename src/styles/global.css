@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
 @import "tailwindcss";
+@source "../**/*.{astro,html,ts,js,jsx,tsx,mdx}";
 
 @theme {
   --color-purple: #7c3aed;
