@@ -7,21 +7,9 @@ import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigatio
 
       <!-- Logo -->
       <a href="/" class="flex-shrink-0" aria-label="inspir - home">
-        <img
-          src="/logos/inspir-black.png"
-          alt="inspir"
-          width="120"
-          height="40"
-          class="h-9 w-auto logo-dark"
-          style="mix-blend-mode: multiply;"
-        />
-        <img
-          src="/logos/inspir-white.png"
-          alt="inspir"
-          width="120"
-          height="40"
-          class="h-9 w-auto logo-light hidden"
-        />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 32" fill="currentColor" class="h-8 w-auto" aria-hidden="true">
+          <text x="0" y="25" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5">inspir</text>
+        </svg>
       </a>
 
       <!-- Desktop Nav -->
@@ -102,7 +90,9 @@ import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigatio
   <div class="flex flex-col h-full overflow-y-auto">
     <div class="flex items-center justify-between p-6 border-b border-white/10">
       <a href="/" class="flex-shrink-0">
-        <img src="/logos/inspir-white.png" alt="inspir" class="h-9 w-auto" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 32" fill="currentColor" class="h-8 w-auto" aria-hidden="true">
+          <text x="0" y="25" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5">inspir</text>
+        </svg>
       </a>
       <button id="mobile-menu-close" class="p-2 text-white hover:text-electric-lime transition-colors" aria-label="Close menu">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -171,12 +161,7 @@ import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigatio
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
 
-  #site-header.scrolled .logo-dark { display: block; }
-  #site-header.scrolled .logo-light { display: none; }
-  #site-header:not(.scrolled) .logo-dark { display: none; }
-  #site-header:not(.scrolled) .logo-light { display: block; }
-
-  #site-header.scrolled .nav-link { color: var(--dark); }
+#site-header.scrolled .nav-link { color: var(--dark); }
   #site-header:not(.scrolled) .nav-link { color: rgba(255,255,255,0.9); }
 </style>
 
