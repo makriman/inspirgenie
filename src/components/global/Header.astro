@@ -8,7 +8,7 @@ const currentPath = Astro.url.pathname;
 
       <!-- Logo -->
       <a href="/" class="flex-shrink-0" aria-label="inspir - home">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 32" fill="currentColor" class="h-8 w-auto" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 32" fill="currentColor" class="h-8 w-auto logo-svg" aria-hidden="true">
           <text x="0" y="25" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5">inspir</text>
         </svg>
       </a>
@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname;
 
         <!-- Services Dropdown -->
         <div class="relative group">
-          <button class={`nav-link flex items-center gap-1 font-medium hover:text-purple transition-colors duration-150 py-2${currentPath.startsWith('/services') ? ' underline decoration-electric-lime underline-offset-4' : ''}`} aria-haspopup="true" aria-expanded="false">
+          <button class={`nav-link flex items-center gap-1 font-medium transition-colors duration-150 py-2${currentPath.startsWith('/services') ? ' nav-link--active' : ''}`} aria-haspopup="true" aria-expanded="false">
             Services
             <svg class="w-4 h-4 transition-transform duration-150 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
 
         <!-- Platforms Dropdown -->
         <div class="relative group">
-          <button class={`nav-link flex items-center gap-1 font-medium hover:text-purple transition-colors duration-150 py-2${currentPath.startsWith('/platforms') ? ' underline decoration-electric-lime underline-offset-4' : ''}`} aria-haspopup="true" aria-expanded="false">
+          <button class={`nav-link flex items-center gap-1 font-medium transition-colors duration-150 py-2${currentPath.startsWith('/platforms') ? ' nav-link--active' : ''}`} aria-haspopup="true" aria-expanded="false">
             Platforms
             <svg class="w-4 h-4 transition-transform duration-150 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -63,20 +63,20 @@ const currentPath = Astro.url.pathname;
         </div>
 
         {mainNav.map(item => (
-          <a href={item.href} class={`nav-link font-medium hover:text-purple transition-colors duration-150${currentPath === item.href ? ' underline decoration-electric-lime underline-offset-4' : ''}`}>{item.label}</a>
+          <a href={item.href} class={`nav-link font-medium transition-colors duration-150${currentPath === item.href ? ' nav-link--active' : ''}`}>{item.label}</a>
         ))}
 
-        <a href="/contact" class="ml-2 bg-electric-lime text-dark font-bold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity text-sm">
+        <a href="/contact" class="header-cta ml-2 font-bold px-5 py-2.5 rounded-lg text-sm transition-all duration-200">
           Get started →
         </a>
       </div>
 
       <!-- Mobile: CTA + Hamburger -->
       <div class="flex lg:hidden items-center gap-3">
-        <a href="/contact" class="bg-electric-lime text-dark font-bold px-4 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity">
+        <a href="/contact" class="mobile-header-cta font-bold px-4 py-2 rounded-lg text-sm transition-all duration-200">
           Get started
         </a>
-        <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-cream/20 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <button id="mobile-menu-toggle" class="hamburger-btn p-2 rounded-lg transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <svg id="hamburger-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -91,11 +91,11 @@ const currentPath = Astro.url.pathname;
   <div class="flex flex-col h-full overflow-y-auto">
     <div class="flex items-center justify-between p-6 border-b border-white/10">
       <a href="/" class="flex-shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 32" fill="currentColor" class="h-8 w-auto" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 32" fill="white" class="h-8 w-auto" aria-hidden="true">
           <text x="0" y="25" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5">inspir</text>
         </svg>
       </a>
-      <button id="mobile-menu-close" class="p-2 text-white hover:text-electric-lime transition-colors" aria-label="Close menu">
+      <button id="mobile-menu-close" class="p-2 text-white hover:text-purple transition-colors" aria-label="Close menu">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
@@ -105,7 +105,7 @@ const currentPath = Astro.url.pathname;
     <nav class="flex-1 p-6 space-y-2">
       <!-- Services Accordion -->
       <div class="mobile-accordion">
-        <button class="mobile-accordion-trigger w-full flex items-center justify-between text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">
+        <button class="mobile-accordion-trigger w-full flex items-center justify-between text-white text-xl font-bold py-3 hover:text-purple transition-colors" style="font-family: var(--font-heading);">
           Services
           <svg class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -113,15 +113,15 @@ const currentPath = Astro.url.pathname;
         </button>
         <div class="mobile-accordion-content hidden pl-4 pb-2 space-y-2">
           {serviceNavItems.map(item => (
-            <a href={item.href} class="block text-gray-300 hover:text-electric-lime transition-colors py-2">{item.label}</a>
+            <a href={item.href} class="block text-gray-300 hover:text-white transition-colors py-2">{item.label}</a>
           ))}
-          <a href="/services" class="block text-electric-lime font-semibold py-2">All services →</a>
+          <a href="/services" class="block text-purple font-semibold py-2">All services →</a>
         </div>
       </div>
 
       <!-- Platforms Accordion -->
       <div class="mobile-accordion">
-        <button class="mobile-accordion-trigger w-full flex items-center justify-between text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">
+        <button class="mobile-accordion-trigger w-full flex items-center justify-between text-white text-xl font-bold py-3 hover:text-purple transition-colors" style="font-family: var(--font-heading);">
           Platforms
           <svg class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -129,20 +129,20 @@ const currentPath = Astro.url.pathname;
         </button>
         <div class="mobile-accordion-content hidden pl-4 pb-2 space-y-2">
           {platformNavItems.map(item => (
-            <a href={item.href} class="block text-gray-300 hover:text-electric-lime transition-colors py-2">{item.label}</a>
+            <a href={item.href} class="block text-gray-300 hover:text-white transition-colors py-2">{item.label}</a>
           ))}
-          <a href="/platforms" class="block text-electric-lime font-semibold py-2">All platforms →</a>
+          <a href="/platforms" class="block text-purple font-semibold py-2">All platforms →</a>
         </div>
       </div>
 
-      <a href="/pricing" class="block text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">Pricing</a>
-      <a href="/about" class="block text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">About</a>
-      <a href="/blog" class="block text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">Blog</a>
-      <a href="/faq" class="block text-white text-xl font-bold py-3 hover:text-electric-lime transition-colors" style="font-family: var(--font-heading);">FAQ</a>
+      <a href="/pricing" class="block text-white text-xl font-bold py-3 hover:text-purple transition-colors" style="font-family: var(--font-heading);">Pricing</a>
+      <a href="/about" class="block text-white text-xl font-bold py-3 hover:text-purple transition-colors" style="font-family: var(--font-heading);">About</a>
+      <a href="/blog" class="block text-white text-xl font-bold py-3 hover:text-purple transition-colors" style="font-family: var(--font-heading);">Blog</a>
+      <a href="/faq" class="block text-white text-xl font-bold py-3 hover:text-purple transition-colors" style="font-family: var(--font-heading);">FAQ</a>
     </nav>
 
     <div class="p-6 border-t border-white/10">
-      <a href="/contact" class="block w-full text-center bg-electric-lime text-dark font-bold py-4 rounded-xl text-lg hover:opacity-90 transition-opacity">
+      <a href="/contact" class="block w-full text-center bg-purple text-white font-bold py-4 rounded-xl text-lg hover:bg-[#6d28d9] transition-colors">
         Get started →
       </a>
     </div>
@@ -150,20 +150,61 @@ const currentPath = Astro.url.pathname;
 </div>
 
 <style>
+  /* ── Transparent state (over hero) ── */
   #site-header {
     background: transparent;
-    color: white;
   }
+  #site-header .logo-svg { color: white; }
+  #site-header .nav-link { color: rgba(255,255,255,0.88); }
+  #site-header .nav-link:hover { color: white; }
+  #site-header .nav-link--active {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #B6F03C;
+    text-underline-offset: 4px;
+  }
+  #site-header .header-cta {
+    background: rgba(255,255,255,0.95);
+    color: #0f0a1a;
+  }
+  #site-header .header-cta:hover {
+    background: white;
+  }
+  #site-header .mobile-header-cta {
+    background: rgba(255,255,255,0.95);
+    color: #0f0a1a;
+  }
+  #site-header .hamburger-btn { color: white; }
+  #site-header .hamburger-btn:hover { background: rgba(255,255,255,0.12); }
 
+  /* ── Scrolled state (white bar) ── */
   #site-header.scrolled {
     background: white;
-    color: var(--dark);
-    border-bottom: 1px solid var(--gray-200);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
   }
-
-#site-header.scrolled .nav-link { color: var(--dark); }
-  #site-header:not(.scrolled) .nav-link { color: rgba(255,255,255,0.9); }
+  #site-header.scrolled .logo-svg { color: #0f0a1a; }
+  #site-header.scrolled .nav-link { color: #0f0a1a; }
+  #site-header.scrolled .nav-link:hover { color: #7c3aed; }
+  #site-header.scrolled .nav-link--active {
+    color: #7c3aed;
+    text-decoration: underline;
+    text-decoration-color: #B6F03C;
+    text-underline-offset: 4px;
+  }
+  #site-header.scrolled .header-cta {
+    background: #7c3aed;
+    color: white;
+  }
+  #site-header.scrolled .header-cta:hover {
+    background: #6d28d9;
+  }
+  #site-header.scrolled .mobile-header-cta {
+    background: #7c3aed;
+    color: white;
+  }
+  #site-header.scrolled .hamburger-btn { color: #0f0a1a; }
+  #site-header.scrolled .hamburger-btn:hover { background: #f5f5f4; }
 </style>
 
 <script>

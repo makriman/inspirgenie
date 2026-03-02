@@ -49,23 +49,24 @@ const pricingSchema = {
   <!-- Main Price Card -->
   <section class="py-16 bg-cream">
     <div class="container">
-      <div class="max-w-lg mx-auto bg-white rounded-2xl border-2 border-electric-lime shadow-xl shadow-purple/10 p-10">
-        <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-2">Standard Plan</p>
+      <div class="max-w-lg mx-auto bg-white rounded-2xl border border-gray-200 shadow-xl shadow-purple/10 p-10 relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-purple rounded-t-2xl"></div>
+        <p class="text-xs font-bold uppercase tracking-[0.12em] text-gray-400 mb-3 mt-2">Standard Plan</p>
         <div class="flex items-baseline gap-2 mb-1">
           <span class="text-6xl font-extrabold text-coral" style="font-family: var(--font-heading);">£999</span>
           <span class="text-gray-400 text-xl">/month</span>
         </div>
         <p class="text-gray-500 mb-8">per dedicated operator</p>
 
-        <div class="mb-8 p-5 bg-cream rounded-xl">
-          <div class="flex items-center justify-between mb-1">
+        <div class="mb-8 p-5 bg-cream rounded-xl flex items-center justify-between">
+          <div>
             <span class="font-bold text-dark text-lg">£9,990/year</span>
-            <span class="text-sm bg-electric-lime text-dark px-3 py-1 rounded-full font-bold">Save £1,998</span>
+            <p class="text-sm text-gray-500 mt-0.5">Two months free. Billed upfront.</p>
           </div>
-          <p class="text-sm text-gray-500">Two months free. Billed upfront.</p>
+          <span class="text-sm bg-purple/10 text-purple px-3 py-1.5 rounded-full font-bold flex-shrink-0 ml-4">Save £1,998</span>
         </div>
 
-        <a href="/contact" class="block w-full text-center bg-electric-lime text-dark font-bold py-4 rounded-xl text-lg hover:opacity-90 transition-opacity mb-4">
+        <a href="/contact" class="block w-full text-center bg-purple text-white font-bold py-4 rounded-xl text-lg hover:bg-[#6d28d9] transition-colors mb-4">
           Get started today →
         </a>
         <p class="text-center text-xs text-gray-400">No lock-in · Cancel anytime · GBP billing</p>
@@ -77,7 +78,7 @@ const pricingSchema = {
   <section class="py-20 lg:py-28" style="background-color: #1e40af;">
     <div class="container">
       <div class="text-center mb-16">
-        <p class="text-sm font-semibold uppercase tracking-widest text-electric-lime mb-3">What's included</p>
+        <p class="text-xs font-bold uppercase tracking-[0.12em] mb-3" style="color: #B6F03C;">What's included</p>
         <h2 class="text-3xl lg:text-4xl font-extrabold text-white" style="font-family: var(--font-heading);">
           Everything in the price.
         </h2>
@@ -111,7 +112,7 @@ const pricingSchema = {
   <section class="py-20 lg:py-28 bg-cream">
     <div class="container">
       <div class="text-center mb-16">
-        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-3">Volume pricing</p>
+        <p class="text-xs font-bold uppercase tracking-[0.12em] text-purple mb-3">Volume pricing</p>
         <h2 class="text-3xl lg:text-4xl font-extrabold text-dark" style="font-family: var(--font-heading);">
           More operators, same rate.
         </h2>
@@ -130,12 +131,12 @@ const pricingSchema = {
           </thead>
           <tbody class="divide-y divide-gray-100">
             {volumePricing.map((row, i) => (
-              <tr class={i === 0 ? 'bg-electric-lime/10' : ''}>
+              <tr class={i === 0 ? 'bg-purple/5' : ''}>
                 <td class="p-5">
                   <span class={`font-bold ${i === 0 ? 'text-dark' : 'text-gray-700'}`}>
                     {row.operators} operator{row.operators !== '1' && row.operators !== '10+' ? 's' : row.operators === '10+' ? '+' : ''}
                   </span>
-                  {i === 0 && <span class="ml-2 text-xs bg-electric-lime text-dark px-2 py-0.5 rounded-full font-semibold">Most popular</span>}
+                  {i === 0 && <span class="ml-2 text-xs bg-purple/10 text-purple px-2 py-0.5 rounded-full font-semibold">Most popular</span>}
                 </td>
                 <td class={`p-5 text-center font-semibold ${i === 0 ? 'text-coral' : 'text-gray-700'}`}>{row.monthly}</td>
                 <td class="p-5 text-center text-gray-700">{row.annual}</td>
@@ -158,7 +159,7 @@ const pricingSchema = {
   <section class="py-20 lg:py-28 bg-white">
     <div class="container max-w-5xl mx-auto">
       <div class="text-center mb-16">
-        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-3">The maths</p>
+        <p class="text-xs font-bold uppercase tracking-[0.12em] text-purple mb-3">The maths</p>
         <h2 class="text-3xl lg:text-4xl font-extrabold text-dark" style="font-family: var(--font-heading);">
           The real cost of the alternatives.
         </h2>
@@ -166,7 +167,7 @@ const pricingSchema = {
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- inspir -->
-        <div class="bg-cream rounded-2xl p-8 border-2 border-electric-lime">
+        <div class="bg-cream rounded-2xl p-8 border border-purple/30 relative overflow-hidden">
           <div class="flex items-center gap-3 mb-6">
             <span class="text-2xl">✓</span>
             <h3 class="font-bold text-dark text-xl" style="font-family: var(--font-heading);">inspir</h3>

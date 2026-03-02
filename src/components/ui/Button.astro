@@ -25,12 +25,12 @@ const sizeClasses = {
 };
 
 const variantClasses = {
-  primary: 'bg-electric-lime text-dark font-bold hover:opacity-90',
+  primary: 'bg-purple text-white font-bold hover:bg-[#6d28d9] active:bg-[#5b21b6]',
   secondary: 'border-2 border-current text-current font-semibold hover:bg-white/10',
   ghost: 'text-current font-semibold hover:underline',
 };
 
-const baseClasses = 'inline-flex items-center gap-2 rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-electric-lime focus:ring-offset-2';
+const baseClasses = 'inline-flex items-center gap-2 rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-purple focus:ring-offset-2';
 const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 ---
 {href ? (

@@ -204,7 +204,4 @@ a {
   user-select: none;
 }
 
-/* Footer brand/legal */
-.footer-brand-line { font-size: 13px; color: #d1d5db; margin-bottom: 4px; }
-.footer-company-line { font-size: 11px; color: #6b7280; margin-bottom: 3px; }
-.footer-copyright { font-size: 11px; color: #6b7280; }
+/* Section eyebrow labels — use text-xs font-bold uppercase tracking-[0.12em] inline */

@@ -27,11 +27,11 @@ const steps = [
   }
 ];
 ---
-<section class="py-20 lg:py-28" style="background-color: #1e40af;">
+<section class="py-20 lg:py-28" style="background: linear-gradient(135deg, #1a3a9c 0%, #1e40af 60%, #1a3a9c 100%);">
   <div class="container">
     <div class="text-center mb-16">
-      <p class="text-sm font-semibold uppercase tracking-widest text-electric-lime mb-3">How it works</p>
-      <h2 class="text-3xl lg:text-4xl font-extrabold text-white" style="font-family: var(--font-heading);">
+      <p class="text-xs font-bold uppercase tracking-[0.14em] mb-3" style="color: #B6F03C;">How it works</p>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-white" style="font-family: var(--font-heading); letter-spacing: -0.02em;">
         Signed today. Live in two weeks.
       </h2>
     </div>
@@ -39,36 +39,39 @@ const steps = [
     <!-- Desktop: horizontal timeline -->
     <div class="hidden lg:grid grid-cols-5 gap-6 relative">
       <!-- Connecting line -->
-      <div class="absolute top-8 left-[10%] right-[10%] h-0.5 bg-electric-lime/30 z-0"></div>
+      <div class="absolute top-8 left-[10%] right-[10%] h-px bg-white/15 z-0"></div>
 
       {steps.map(step => (
         <div class="relative z-10 text-center">
-          <div class="w-16 h-16 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center mx-auto mb-4 ring-4 ring-blue-700" style="font-family: var(--font-heading);">
+          <div class="w-16 h-16 rounded-full bg-white text-purple font-extrabold text-base flex items-center justify-center mx-auto mb-5 shadow-lg" style="font-family: var(--font-heading); box-shadow: 0 8px 24px rgba(0,0,0,0.25);">
             {step.number}
           </div>
-          <h3 class="font-bold text-white text-base mb-2" style="font-family: var(--font-heading);">{step.title}</h3>
-          <p class="text-blue-200 text-sm leading-relaxed">{step.description}</p>
+          <h3 class="font-bold text-white text-sm mb-2" style="font-family: var(--font-heading);">{step.title}</h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(186,210,255,0.75);">{step.description}</p>
         </div>
       ))}
     </div>
 
     <!-- Mobile: vertical timeline -->
-    <div class="lg:hidden space-y-0 relative" aria-hidden="true">
-      <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-electric-lime/30"></div>
+    <div class="lg:hidden space-y-0 relative">
+      <div class="absolute left-7 top-8 bottom-8 w-px bg-white/15"></div>
       {steps.map(step => (
         <div class="relative pl-20 pb-10 last:pb-0">
-          <div class="absolute left-0 w-16 h-16 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center ring-4 ring-blue-700" style="font-family: var(--font-heading);">
+          <div class="absolute left-0 w-14 h-14 rounded-full bg-white text-purple font-extrabold text-sm flex items-center justify-center" style="font-family: var(--font-heading); box-shadow: 0 4px 16px rgba(0,0,0,0.25);">
             {step.number}
           </div>
-          <h3 class="font-bold text-white text-base mb-2 pt-4" style="font-family: var(--font-heading);">{step.title}</h3>
-          <p class="text-blue-200 text-sm leading-relaxed">{step.description}</p>
+          <h3 class="font-bold text-white text-sm mb-2 pt-3" style="font-family: var(--font-heading);">{step.title}</h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(186,210,255,0.75);">{step.description}</p>
         </div>
       ))}
     </div>
 
-    <div class="text-center mt-16">
-      <a href="/how-it-works" class="text-electric-lime font-semibold hover:underline text-sm">
-        See the full process in detail →
+    <div class="text-center mt-14">
+      <a href="/how-it-works" class="inline-flex items-center gap-2 text-sm font-medium transition-colors" style="color: rgba(255,255,255,0.6);" onmouseover="this.style.color='rgba(255,255,255,1)'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">
+        See the full process in detail
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
       </a>
     </div>
   </div>
