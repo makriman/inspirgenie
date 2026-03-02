@@ -1,33 +1,32 @@
 ---
 import { footerNav } from '../../data/navigation';
-const year = new Date().getFullYear();
 ---
-<footer class="bg-dark" role="contentinfo">
+<footer class="bg-dark text-gray-400" role="contentinfo">
   <div class="container py-16 lg:py-20">
 
-    <!-- Top grid: brand col + 4 nav cols -->
-    <div class="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-10 pb-12" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <!-- Top: Logo + tagline + nav columns -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 pb-12 border-b border-gray-700">
 
-      <!-- Brand -->
-      <div class="col-span-2 lg:col-span-1">
-        <a href="/" class="inline-block mb-5" aria-label="inspir - home">
-          <span class="font-extrabold text-2xl text-white" style="font-family: var(--font-heading); letter-spacing: -0.04em;">inspir</span>
+      <!-- Logo + tagline -->
+      <div class="lg:col-span-2">
+        <a href="/" class="inline-block mb-4" aria-label="inspir - home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 32" fill="currentColor" class="h-8 w-auto text-white" aria-hidden="true"><text x="0" y="25" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5">inspir</text></svg>
         </a>
-        <p class="text-sm leading-relaxed mb-4" style="color: rgba(255,255,255,0.45);">
+        <p class="text-gray-400 text-sm leading-relaxed">
           Ecommerce operations,<br />fully managed.
         </p>
-        <p class="text-xs" style="color: rgba(255,255,255,0.25);">
-          One operator · 40 hrs/week · £999/mo
+        <p class="mt-4 text-xs text-gray-500">
+          One operator. 40 hours a week.<br />£999/month.
         </p>
       </div>
 
       <!-- Services -->
       <div>
-        <h3 class="text-white font-bold text-xs uppercase tracking-widest mb-5">Services</h3>
-        <ul class="space-y-3">
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Services</h3>
+        <ul class="space-y-2.5">
           {footerNav.services.map(item => (
             <li>
-              <a href={item.href} class="text-sm transition-colors duration-150 hover:text-electric-lime" style="color: rgba(255,255,255,0.45);">
+              <a href={item.href} class="text-sm hover:text-electric-lime transition-colors duration-150">
                 {item.label}
               </a>
             </li>
@@ -37,11 +36,11 @@ const year = new Date().getFullYear();
 
       <!-- Platforms -->
       <div>
-        <h3 class="text-white font-bold text-xs uppercase tracking-widest mb-5">Platforms</h3>
-        <ul class="space-y-3">
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Platforms</h3>
+        <ul class="space-y-2.5">
           {footerNav.platforms.map(item => (
             <li>
-              <a href={item.href} class="text-sm transition-colors duration-150 hover:text-electric-lime" style="color: rgba(255,255,255,0.45);">
+              <a href={item.href} class="text-sm hover:text-electric-lime transition-colors duration-150">
                 {item.label}
               </a>
             </li>
@@ -51,11 +50,11 @@ const year = new Date().getFullYear();
 
       <!-- Company -->
       <div>
-        <h3 class="text-white font-bold text-xs uppercase tracking-widest mb-5">Company</h3>
-        <ul class="space-y-3">
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Company</h3>
+        <ul class="space-y-2.5">
           {footerNav.company.map(item => (
             <li>
-              <a href={item.href} class="text-sm transition-colors duration-150 hover:text-electric-lime" style="color: rgba(255,255,255,0.45);">
+              <a href={item.href} class="text-sm hover:text-electric-lime transition-colors duration-150">
                 {item.label}
               </a>
             </li>
@@ -63,31 +62,34 @@ const year = new Date().getFullYear();
         </ul>
       </div>
 
-      <!-- Legal + Contact -->
+      <!-- Legal -->
       <div>
-        <h3 class="text-white font-bold text-xs uppercase tracking-widest mb-5">Legal</h3>
-        <ul class="space-y-3 mb-8">
+        <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-4">Legal</h3>
+        <ul class="space-y-2.5">
           {footerNav.legal.map(item => (
             <li>
-              <a href={item.href} class="text-sm transition-colors duration-150 hover:text-electric-lime" style="color: rgba(255,255,255,0.45);">
+              <a href={item.href} class="text-sm hover:text-electric-lime transition-colors duration-150">
                 {item.label}
               </a>
             </li>
           ))}
         </ul>
-        <h3 class="text-white font-bold text-xs uppercase tracking-widest mb-4">Contact</h3>
-        <a href="mailto:hello@inspir.uk" class="block text-sm transition-colors duration-150 hover:text-electric-lime mb-2" style="color: rgba(255,255,255,0.45);">hello@inspir.uk</a>
-        <a href="tel:+447447793716" class="block text-sm transition-colors duration-150 hover:text-electric-lime" style="color: rgba(255,255,255,0.45);">+44 7447 793716</a>
+
+        <div class="mt-8">
+          <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-3">Contact</h3>
+          <a href="mailto:hello@inspir.uk" class="text-sm hover:text-electric-lime transition-colors">hello@inspir.uk</a>
+          <br/><a href="tel:+447447793716" class="text-sm hover:text-electric-lime transition-colors mt-1 inline-block">+44 7447 793716</a>
+        </div>
       </div>
     </div>
 
-    <!-- Bottom bar -->
-    <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+    <!-- Bottom: company info + copyright -->
+    <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <div>
-        <p class="footer-brand-line">inspir — Ecommerce Operations · Operated by inspir learning LTD</p>
-        <p class="footer-company-line">Registered in England and Wales · London SW9 0PP</p>
+        <p class="footer-brand-line">inspir — Ecommerce Operations</p>
+        <p class="footer-company-line">Operated by inspir learning LTD · Registered in England and Wales · London SW9 0PP</p>
+        <p class="footer-copyright">© 2024–2026 inspir learning LTD. All rights reserved.</p>
       </div>
-      <p class="footer-copyright">© 2024–{year} inspir learning LTD. All rights reserved.</p>
     </div>
   </div>
 </footer>

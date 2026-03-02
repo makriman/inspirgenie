@@ -27,7 +27,7 @@ const steps = [
   }
 ];
 ---
-<section class="py-20 lg:py-28" style="background-color: #0C1F40;">
+<section class="py-20 lg:py-28" style="background-color: #1e40af;">
   <div class="container">
     <div class="text-center mb-16">
       <p class="text-sm font-semibold uppercase tracking-widest text-electric-lime mb-3">How it works</p>
@@ -43,7 +43,7 @@ const steps = [
 
       {steps.map(step => (
         <div class="relative z-10 text-center">
-          <div class="w-16 h-16 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center mx-auto mb-4 ring-4 ring-white/10" style="font-family: var(--font-heading);">
+          <div class="w-16 h-16 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center mx-auto mb-4 ring-4 ring-blue-700" style="font-family: var(--font-heading);">
             {step.number}
           </div>
           <h3 class="font-bold text-white text-base mb-2" style="font-family: var(--font-heading);">{step.title}</h3>
@@ -57,7 +57,7 @@ const steps = [
       <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-electric-lime/30"></div>
       {steps.map(step => (
         <div class="relative pl-20 pb-10 last:pb-0">
-          <div class="absolute left-0 w-16 h-16 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center ring-4 ring-white/10" style="font-family: var(--font-heading);">
+          <div class="absolute left-0 w-16 h-16 rounded-full bg-coral text-white font-extrabold text-lg flex items-center justify-center ring-4 ring-blue-700" style="font-family: var(--font-heading);">
             {step.number}
           </div>
           <h3 class="font-bold text-white text-base mb-2 pt-4" style="font-family: var(--font-heading);">{step.title}</h3>
