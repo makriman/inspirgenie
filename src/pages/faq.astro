@@ -1,7 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Accordion from '../components/ui/Accordion.astro';
-import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+import PageHero from '../components/global/PageHero.astro';
 import CTA from '../components/global/CTA.astro';
 import { faqCategories, allFAQs } from '../data/faq';
 
@@ -23,16 +23,15 @@ const faqSchema = {
   description="Answers to common questions about inspir's managed ecommerce ops for UK businesses. Pricing, onboarding, platforms, security, and more."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
-  <Breadcrumbs items={[{ label: 'FAQ' }]} />
+  <PageHero
+    breadcrumbs={[{ label: 'FAQ' }]}
+    label="FAQ"
+    title="Questions answered."
+    description="Everything you need to know about inspir and how it works."
+  />
 
-  <section class="py-20 lg:py-28 bg-cream">
+  <section class="py-16 lg:py-20 bg-cream">
     <div class="container max-w-3xl mx-auto">
-      <div class="text-center mb-16">
-        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">FAQ</p>
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">Questions answered.</h1>
-        <p class="text-xl text-gray-600">Everything you need to know about inspir and how it works.</p>
-      </div>
-
       {faqCategories.map((category) => (
         <div class="mb-16">
           <h2 class="text-2xl font-extrabold text-dark mb-8 pb-4 border-b border-gray-200" style="font-family: var(--font-heading);">

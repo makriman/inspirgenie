@@ -1,13 +1,11 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import CTA from '../components/global/CTA.astro';
-import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+import PageHero from '../components/global/PageHero.astro';
 import Accordion from '../components/ui/Accordion.astro';
 import { faqCategories } from '../data/faq';
 
 const pricingFAQs = faqCategories.find(c => c.slug === 'pricing')?.items ?? [];
-
-const siteUrl = 'https://inspir.uk';
 
 const volumePricing = [
   { operators: '1', monthly: '£999/mo', annual: '£9,990/yr', saving: '£1,998' },
@@ -41,23 +39,15 @@ const pricingSchema = {
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(pricingSchema)} />
 
-  <Breadcrumbs items={[{ label: 'Pricing' }]} />
-
-  <!-- Hero -->
-  <section class="py-20 lg:py-28 bg-cream">
-    <div class="container text-center max-w-3xl mx-auto">
-      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Pricing</p>
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
-        One price. No surprises.
-      </h1>
-      <p class="text-xl text-gray-600">
-        £999 a month. One dedicated operator. 40 hours a week. Cancel anytime.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: 'Pricing' }]}
+    label="Pricing"
+    title="One price. No surprises."
+    description="£999 a month. One dedicated operator. 40 hours a week. Cancel anytime."
+  />
 
   <!-- Main Price Card -->
-  <section class="pb-20 bg-cream">
+  <section class="py-16 bg-cream">
     <div class="container">
       <div class="max-w-lg mx-auto bg-white rounded-2xl border-2 border-electric-lime shadow-xl shadow-purple/10 p-10">
         <p class="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-2">Standard Plan</p>

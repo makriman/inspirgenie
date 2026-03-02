@@ -1,0 +1,58 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  label?: string;
+  title: string;
+  description?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  compact?: boolean;
+}
+
+const { label, title, description, breadcrumbs = [], compact = false } = Astro.props;
+
+const siteUrl = 'https://inspir.uk';
+
+const breadcrumbSchema = breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+    ...breadcrumbs.map((item, i) => ({
+      "@type": "ListItem",
+      "position": i + 2,
+      "name": item.label,
+      ...(item.href ? { "item": `${siteUrl}${item.href}` } : {})
+    }))
+  ]
+} : null;
+---
+
+<div class={compact ? 'page-hero page-hero--compact' : 'page-hero'}>
+  <div class="container">
+    {breadcrumbs.length > 0 && (
+      <nav class="page-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        {breadcrumbs.map((item, i) => (
+          <>
+            <span class="page-breadcrumb-sep" aria-hidden="true">/</span>
+            {item.href && i < breadcrumbs.length - 1 ? (
+              <a href={item.href}>{item.label}</a>
+            ) : (
+              <span aria-current="page">{item.label}</span>
+            )}
+          </>
+        ))}
+      </nav>
+    )}
+    {label && <span class="page-label">{label}</span>}
+    <h1>{title}</h1>
+    {description && <p class="hero-sub">{description}</p>}
+  </div>
+</div>
+{breadcrumbSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+)}

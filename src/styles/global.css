@@ -5,7 +5,7 @@
 @theme {
   --color-purple: #7c3aed;
   --color-deep-blue: #1e40af;
-  --color-electric-lime: #d9f99d;
+  --color-electric-lime: #B6F03C;
   --color-coral: #fb7185;
   --color-cream: #f5f5f4;
   --color-dark: #0f0a1a;
@@ -21,7 +21,7 @@
 :root {
   --purple: #7c3aed;
   --deep-blue: #1e40af;
-  --electric-lime: #d9f99d;
+  --electric-lime: #B6F03C;
   --coral: #fb7185;
   --cream: #f5f5f4;
   --dark: #0f0a1a;
@@ -132,3 +132,79 @@ a {
   max-height: 500px;
   opacity: 1;
 }
+
+/* Ticker pause on hover */
+.logo-scroll-wrapper:hover .logo-scroll {
+  animation-play-state: paused;
+}
+
+/* Page hero (inner pages) */
+.page-hero {
+  background-color: #1e40af;
+  padding: 108px 0 60px;
+  min-height: 260px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+.page-hero--compact {
+  padding: 90px 0 44px;
+  min-height: 180px;
+}
+.page-hero .container {
+  width: 100%;
+}
+.page-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B6F03C;
+  margin-bottom: 14px;
+  display: block;
+}
+.page-hero h1 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  max-width: 780px;
+  margin: 0 0 16px;
+}
+.page-hero .hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 580px;
+  line-height: 1.6;
+  margin: 0;
+}
+.page-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.page-breadcrumb a {
+  color: rgba(255, 255, 255, 0.58);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.page-breadcrumb a:hover {
+  color: rgba(255, 255, 255, 0.90);
+}
+.page-breadcrumb span[aria-current="page"] {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 500;
+}
+.page-breadcrumb-sep {
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 12px;
+  user-select: none;
+}
+
+/* Footer brand/legal */
+.footer-brand-line { font-size: 13px; color: #d1d5db; margin-bottom: 4px; }
+.footer-company-line { font-size: 11px; color: #6b7280; margin-bottom: 3px; }
+.footer-copyright { font-size: 11px; color: #6b7280; }

@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import PageHero from '../../components/global/PageHero.astro';
 import CTA from '../../components/global/CTA.astro';
 import { getCollection } from 'astro:content';
 
@@ -20,20 +20,15 @@ function readingTime(body: string): number {
   title="Resources for UK Ecommerce Businesses | inspir"
   description="Practical guides, insights, and operations advice for UK ecommerce business owners. From outsourcing decisions to platform comparisons."
 >
-  <Breadcrumbs items={[{ label: 'Blog' }]} />
+  <PageHero
+    breadcrumbs={[{ label: 'Blog' }]}
+    label="Resources"
+    title="Resources for UK ecommerce businesses."
+    description="Practical guides and insights for ecommerce operators, owners, and founders."
+  />
 
-  <section class="py-20 lg:py-28 bg-cream">
+  <section class="py-16 lg:py-20 bg-cream">
     <div class="container">
-      <div class="text-center mb-16 max-w-2xl mx-auto">
-        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Resources</p>
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
-          Resources for UK ecommerce businesses.
-        </h1>
-        <p class="text-xl text-gray-600">
-          Practical guides and insights for ecommerce operators, owners, and founders.
-        </p>
-      </div>
-
       {sortedPosts.length > 0 ? (
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {sortedPosts.map(post => (

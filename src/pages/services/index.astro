@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import PageHero from '../../components/global/PageHero.astro';
 import CTA from '../../components/global/CTA.astro';
 import { services, additionalServices } from '../../data/services';
 
@@ -21,20 +21,15 @@ const serviceSchema = {
   description="Customer support, order management, catalogue ops, returns, inventory — all handled by your dedicated UK ecommerce operator."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
-  <Breadcrumbs items={[{ label: 'Services' }]} />
+  <PageHero
+    breadcrumbs={[{ label: 'Services' }]}
+    label="Services"
+    title="Everything your store needs. One operator."
+    description="Your dedicated operator handles every aspect of ecommerce operations. One person, one flat rate, all tasks."
+  />
 
-  <section class="py-20 lg:py-28 bg-cream">
+  <section class="py-16 lg:py-20 bg-cream">
     <div class="container">
-      <div class="text-center mb-16 max-w-2xl mx-auto">
-        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Services</p>
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
-          Everything your store needs. One operator.
-        </h1>
-        <p class="text-xl text-gray-600">
-          Your dedicated operator handles every aspect of ecommerce operations. One person, one flat rate, all tasks.
-        </p>
-      </div>
-
       <!-- Main services grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
         {services.map(service => (

@@ -5,12 +5,12 @@ import { footerNav } from '../../data/navigation';
   <div class="container py-16 lg:py-20">
 
     <!-- Top: Logo + tagline + nav columns -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-gray-700">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 pb-12 border-b border-gray-700">
 
       <!-- Logo + tagline -->
-      <div class="lg:col-span-1">
+      <div class="lg:col-span-2">
         <a href="/" class="inline-block mb-4" aria-label="inspir - home">
-          <img src="/logos/inspir-white.png" alt="inspir" class="h-9 w-auto" />
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 32" fill="currentColor" class="h-8 w-auto text-white" aria-hidden="true"><text x="0" y="25" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="28" letter-spacing="-0.5">inspir</text></svg>
         </a>
         <p class="text-gray-400 text-sm leading-relaxed">
           Ecommerce operations,<br />fully managed.
@@ -77,22 +77,19 @@ import { footerNav } from '../../data/navigation';
 
         <div class="mt-8">
           <h3 class="text-white font-bold text-sm uppercase tracking-widest mb-3">Contact</h3>
-          <a href="mailto:hello@inspir.uk" class="text-sm hover:text-electric-lime transition-colors">
-            hello@inspir.uk
-          </a>
+          <a href="mailto:hello@inspir.uk" class="text-sm hover:text-electric-lime transition-colors">hello@inspir.uk</a>
+          <br/><a href="tel:+447447793716" class="text-sm hover:text-electric-lime transition-colors mt-1 inline-block">+44 7447 793716</a>
         </div>
       </div>
     </div>
 
     <!-- Bottom: company info + copyright -->
     <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-      <p class="text-xs text-gray-500">
-        inspir learning LTD · London SW9 0PP ·
-        <a href="mailto:hello@inspir.uk" class="hover:text-electric-lime transition-colors">hello@inspir.uk</a>
-      </p>
-      <p class="text-xs text-gray-500">
-        © 2026 inspir learning LTD. All rights reserved.
-      </p>
+      <div>
+        <p class="footer-brand-line">inspir — Ecommerce Operations</p>
+        <p class="footer-company-line">Operated by inspir learning LTD · Registered in England and Wales · London SW9 0PP</p>
+        <p class="footer-copyright">© 2024–2026 inspir learning LTD. All rights reserved.</p>
+      </div>
     </div>
   </div>
 </footer>

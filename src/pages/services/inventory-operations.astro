@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import PageHero from '../../components/global/PageHero.astro';
 import CTA from '../../components/global/CTA.astro';
 
 const serviceSchema = {
@@ -18,17 +18,15 @@ const serviceSchema = {
   description="Stock level monitoring, inventory audits, supplier coordination for UK stores — never oversell, never run out. Your dedicated operator."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
-  <Breadcrumbs items={[{ label: 'Services', href: '/services' }, { label: 'Inventory Operations' }]} />
+  <PageHero
+    breadcrumbs={[{ label: 'Services', href: '/services' }, { label: 'Inventory Operations' }]}
+    label="Inventory Operations"
+    title="Inventory monitoring and supplier coordination."
+    description="Stock level monitoring, inventory audits, supplier coordination. Never oversell. Never run out."
+  />
 
-  <section class="py-20 lg:py-28 bg-cream">
+  <section class="py-16 lg:py-20 bg-cream">
     <div class="container max-w-3xl mx-auto">
-      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Inventory Operations</p>
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
-        Inventory monitoring and supplier coordination.
-      </h1>
-      <p class="text-xl text-gray-600 mb-12">
-        Stock level monitoring, inventory audits, supplier coordination. Never oversell. Never run out.
-      </p>
 
       <!-- What's covered -->
       <div class="mb-16">
@@ -46,7 +44,7 @@ const serviceSchema = {
             'Stock reservation management',
             'Demand forecasting support',
           ].map(item => (
-            <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200">
+            <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-purple/40 hover:shadow-sm transition-all">
               <svg class="w-5 h-5 text-purple flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
               </svg>

@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import PageHero from '../../components/global/PageHero.astro';
 import CTA from '../../components/global/CTA.astro';
 import { platforms, allPlatforms } from '../../data/platforms';
 ---
@@ -8,14 +8,14 @@ import { platforms, allPlatforms } from '../../data/platforms';
   title="All Ecommerce Platforms Supported | inspir"
   description="Shopify, WooCommerce, Magento, BigCommerce, Wix, Squarespace and more — one dedicated operator, every platform, £999/month."
 >
-  <Breadcrumbs items={[{ label: 'Platforms' }]} />
-  <section class="py-20 lg:py-28 bg-cream">
+  <PageHero
+    breadcrumbs={[{ label: 'Platforms' }]}
+    label="Platforms"
+    title="We work with every ecommerce platform."
+    description="Your operator is trained on your specific platform. Not generic knowledge — your actual admin, your actual tools."
+  />
+  <section class="py-16 lg:py-20 bg-cream">
     <div class="container">
-      <div class="text-center mb-16 max-w-2xl mx-auto">
-        <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Platforms</p>
-        <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">We work with every ecommerce platform.</h1>
-        <p class="text-xl text-gray-600">Your operator is trained on your specific platform. Not generic knowledge — your actual admin, your actual tools.</p>
-      </div>
       <div class="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
         {platforms.map(platform => (
           <a href={`/platforms/${platform.slug}`} class="group bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg hover:border-purple/30 transition-all duration-200">

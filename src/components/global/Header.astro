@@ -1,5 +1,6 @@
 ---
 import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigation';
+const currentPath = Astro.url.pathname;
 ---
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="banner">
   <div class="container">
@@ -17,7 +18,7 @@ import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigatio
 
         <!-- Services Dropdown -->
         <div class="relative group">
-          <button class="nav-link flex items-center gap-1 font-medium hover:text-purple transition-colors duration-150 py-2" aria-haspopup="true" aria-expanded="false">
+          <button class={`nav-link flex items-center gap-1 font-medium hover:text-purple transition-colors duration-150 py-2${currentPath.startsWith('/services') ? ' underline decoration-electric-lime underline-offset-4' : ''}`} aria-haspopup="true" aria-expanded="false">
             Services
             <svg class="w-4 h-4 transition-transform duration-150 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -40,7 +41,7 @@ import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigatio
 
         <!-- Platforms Dropdown -->
         <div class="relative group">
-          <button class="nav-link flex items-center gap-1 font-medium hover:text-purple transition-colors duration-150 py-2" aria-haspopup="true" aria-expanded="false">
+          <button class={`nav-link flex items-center gap-1 font-medium hover:text-purple transition-colors duration-150 py-2${currentPath.startsWith('/platforms') ? ' underline decoration-electric-lime underline-offset-4' : ''}`} aria-haspopup="true" aria-expanded="false">
             Platforms
             <svg class="w-4 h-4 transition-transform duration-150 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -62,7 +63,7 @@ import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigatio
         </div>
 
         {mainNav.map(item => (
-          <a href={item.href} class="nav-link font-medium hover:text-purple transition-colors duration-150">{item.label}</a>
+          <a href={item.href} class={`nav-link font-medium hover:text-purple transition-colors duration-150${currentPath === item.href ? ' underline decoration-electric-lime underline-offset-4' : ''}`}>{item.label}</a>
         ))}
 
         <a href="/contact" class="ml-2 bg-electric-lime text-dark font-bold px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity text-sm">

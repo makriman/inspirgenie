@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+import PageHero from '../components/global/PageHero.astro';
 
 const siteUrl = 'https://inspir.uk';
 const localBusinessSchema = {
@@ -21,21 +21,16 @@ const localBusinessSchema = {
   description="Tell us about your UK store. We'll scope it, price it, and have your dedicated ecommerce operator live in two weeks."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(localBusinessSchema)} />
-  <Breadcrumbs items={[{ label: 'Contact' }]} />
+  <PageHero
+    breadcrumbs={[{ label: 'Contact' }]}
+    label="Get started"
+    title="Tell us about your store."
+    description="We'll scope it, price it, and get you live in two weeks."
+  />
 
-  <section class="py-20 lg:py-28 bg-cream">
+  <section class="py-16 lg:py-20 bg-cream">
     <div class="container">
       <div class="max-w-5xl mx-auto">
-        <div class="mb-12">
-          <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">Get started</p>
-          <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">
-            Tell us about your store.
-          </h1>
-          <p class="text-xl text-gray-600">
-            We'll scope it, price it, and get you live in two weeks.
-          </p>
-        </div>
-
         <div class="grid lg:grid-cols-5 gap-12">
           <!-- Form -->
           <div class="lg:col-span-3">

@@ -22,7 +22,7 @@ import { allPlatforms } from '../../data/platforms';
     </div>
 
     <!-- Mobile: scrolling -->
-    <div class="md:hidden overflow-hidden">
+    <div class="md:hidden overflow-hidden logo-scroll-wrapper">
       <div class="flex gap-8 logo-scroll whitespace-nowrap" style="width: max-content;">
         {[...allPlatforms, ...allPlatforms].map((platform, i) => (
           <span class="text-gray-400 font-bold text-lg tracking-tight" style="font-family: var(--font-heading);" key={i}>

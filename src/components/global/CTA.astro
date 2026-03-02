@@ -15,14 +15,14 @@ const {
   email = "hello@inspir.uk"
 } = Astro.props;
 ---
-<section class="bg-purple py-20 lg:py-28 relative noise-overlay overflow-hidden">
+<section class="bg-purple py-20 lg:py-32 relative noise-overlay overflow-hidden">
   <div class="container relative z-10 text-center">
     <h2 class="text-3xl lg:text-5xl font-extrabold text-white mb-4 max-w-2xl mx-auto" style="font-family: var(--font-heading);">
       {heading}
     </h2>
     <p class="text-xl text-blue-200 mb-10 max-w-xl mx-auto">{subheading}</p>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href={buttonHref} class="bg-electric-lime text-dark font-bold px-10 py-4 rounded-xl text-lg hover:opacity-90 transition-opacity">
+      <a href={buttonHref} class="bg-white text-dark font-bold px-10 py-4 rounded-xl text-lg hover:bg-electric-lime transition-colors">
         {buttonText}
       </a>
       <a href={`mailto:${email}`} class="text-blue-200 hover:text-white transition-colors text-sm">

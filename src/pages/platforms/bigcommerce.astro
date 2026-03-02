@@ -1,6 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import Breadcrumbs from '../../components/global/Breadcrumbs.astro';
+import PageHero from '../../components/global/PageHero.astro';
 import CTA from '../../components/global/CTA.astro';
 import { platforms } from '../../data/platforms';
 const platform = platforms.find(p => p.slug === 'bigcommerce')!;
@@ -19,12 +19,14 @@ const serviceSchema = {
   description="Hire a dedicated BigCommerce operator for £999/month. Products, orders, customer support — fully managed across your BigCommerce store."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
-  <Breadcrumbs items={[{ label: 'Platforms', href: '/platforms' }, { label: 'BigCommerce' }]} />
-  <section class="py-20 lg:py-28 bg-cream">
+  <PageHero
+    breadcrumbs={[{ label: 'Platforms', href: '/platforms' }, { label: 'BigCommerce' }]}
+    label="BigCommerce"
+    title="BigCommerce operations support for UK businesses."
+    description="BigCommerce's enterprise feature set gives growing UK stores real power. Multi-storefront, channel manager, headless commerce operations — your dedicated operator handles the daily admin so you can focus on growth."
+  />
+  <section class="py-16 lg:py-20 bg-cream">
     <div class="container max-w-3xl mx-auto">
-      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">BigCommerce</p>
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">BigCommerce operations support for UK businesses.</h1>
-      <p class="text-xl text-gray-600 mb-12">BigCommerce's enterprise feature set gives growing UK stores real power. Multi-storefront, channel manager, headless commerce operations — your dedicated operator handles the daily admin so you can focus on growth.</p>
       <div class="mb-16 bg-white rounded-2xl p-8 border border-gray-200">
         <h2 class="text-2xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">The BigCommerce operational complexity</h2>
         <div class="space-y-4 text-gray-600">
@@ -36,7 +38,7 @@ const serviceSchema = {
         <h2 class="text-2xl font-extrabold text-dark mb-8" style="font-family: var(--font-heading);">What your BigCommerce operator handles</h2>
         <div class="grid sm:grid-cols-2 gap-3">
           {platform.features.map(feature => (
-            <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200">
+            <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-purple/40 hover:shadow-sm transition-all">
               <svg class="w-5 h-5 text-purple flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" /></svg>
               <span class="text-sm text-gray-700">{feature}</span>
             </div>
@@ -47,7 +49,7 @@ const serviceSchema = {
         <h2 class="text-2xl font-extrabold text-dark mb-5" style="font-family: var(--font-heading);">BigCommerce ecosystem expertise</h2>
         <div class="flex flex-wrap gap-2">
           {platform.apps.map(app => (
-            <span class="bg-cream text-dark text-sm font-medium px-4 py-2 rounded-xl border border-gray-200">{app}</span>
+            <span class="inline-flex items-center bg-white text-dark text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200 shadow-sm hover:border-purple/40 transition-colors">{app}</span>
           ))}
         </div>
         <p class="text-gray-500 text-sm mt-4">Using something not on this list? We train on it during onboarding.</p>

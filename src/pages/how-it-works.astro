@@ -1,29 +1,21 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import CTA from '../components/global/CTA.astro';
-import Breadcrumbs from '../components/global/Breadcrumbs.astro';
+import PageHero from '../components/global/PageHero.astro';
 ---
 <PageLayout
   title="How It Works — Live in Two Weeks | inspir"
   description="From first call to live in two weeks. How inspir assigns a dedicated ecommerce operator to your UK store — scoping, onboarding, go-live."
 >
-  <Breadcrumbs items={[{ label: 'How It Works' }]} />
-
-  <!-- Hero -->
-  <section class="py-20 lg:py-28 bg-cream">
-    <div class="container max-w-3xl">
-      <p class="text-sm font-semibold uppercase tracking-widest text-purple mb-4">The process</p>
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-dark mb-6" style="font-family: var(--font-heading);">
-        From first call to live in two weeks.
-      </h1>
-      <p class="text-xl text-gray-600">
-        You don't need to have everything figured out. You need one call. We handle the rest.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    breadcrumbs={[{ label: 'How It Works' }]}
+    label="The process"
+    title="From first call to live in two weeks."
+    description="You don't need to have everything figured out. You need one call. We handle the rest."
+  />
 
   <!-- Detailed steps -->
-  <section class="py-12 lg:py-16 bg-cream">
+  <section class="py-16 lg:py-20 bg-cream">
     <div class="container max-w-3xl mx-auto">
       <div class="space-y-20">
 
