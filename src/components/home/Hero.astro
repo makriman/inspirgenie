@@ -1,12 +1,23 @@
 ---
 ---
-<section class="relative min-h-screen flex items-center noise-overlay overflow-hidden" style="background-color: #1e40af;">
+<section class="relative min-h-screen flex items-center overflow-hidden" style="background-color: #0C1F40;">
+  <!-- Dot-grid texture -->
+  <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 32px 32px;"></div>
+  <!-- Amber ambient glow top-right -->
+  <div class="absolute -top-40 -right-40 w-[640px] h-[640px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(233,168,40,0.12), transparent 65%);"></div>
+  <!-- Indigo ambient glow bottom-left -->
+  <div class="absolute -bottom-32 -left-32 w-[480px] h-[480px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(59,48,168,0.18), transparent 65%);"></div>
+  <!-- Large watermark -->
+  <div class="absolute right-0 bottom-0 select-none pointer-events-none hidden xl:block overflow-hidden" aria-hidden="true">
+    <span style="font-family: var(--font-heading); font-size: 22rem; font-weight: 800; color: rgba(255,255,255,0.025); line-height: 1; letter-spacing: -0.06em; display: block;">£999</span>
+  </div>
+
   <div class="container relative z-10 py-32 lg:py-40">
     <div class="max-w-3xl">
       <!-- Badges row -->
       <div class="flex flex-wrap gap-2 mb-8 animate-fade-up">
         {['All platforms', 'AI-trained', 'Live in 2 weeks', 'Cancel anytime'].map(badge => (
-          <span class="text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide" style="background:rgba(255,255,255,0.13); color:rgba(255,255,255,0.86); border:1px solid rgba(255,255,255,0.22);">
+          <span class="text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide" style="background: rgba(233,168,40,0.14); color: #E9A828; border: 1px solid rgba(233,168,40,0.28);">
             {badge}
           </span>
         ))}
@@ -18,7 +29,7 @@
       </h1>
 
       <!-- Subheading -->
-      <p class="text-lg lg:text-xl mb-10 max-w-2xl leading-relaxed animate-fade-up animate-fade-up-delay-2" style="color:rgba(255,255,255,0.90);">
+      <p class="text-lg lg:text-xl mb-10 max-w-2xl leading-relaxed animate-fade-up animate-fade-up-delay-2" style="color: rgba(255,255,255,0.70);">
         One person. 40 hours a week. Your store, your processes, your timezone. Customer support, orders, catalogue, returns — every platform, fully managed.
       </p>
 
@@ -27,14 +38,15 @@
         <a href="/contact" class="inline-flex items-center justify-center bg-electric-lime text-dark font-bold px-8 py-4 rounded-xl text-lg hover:opacity-90 transition-opacity">
           Get started →
         </a>
-        <a href="/how-it-works" class="inline-flex items-center justify-center border-2 border-white/40 text-white font-semibold px-8 py-4 rounded-xl text-lg hover:border-white hover:bg-white/10 transition-all">
+        <a href="/how-it-works" class="inline-flex items-center justify-center font-semibold px-8 py-4 rounded-xl text-lg transition-all" style="color: rgba(255,255,255,0.80); border: 2px solid rgba(255,255,255,0.18);" onmouseover="this.style.borderColor='rgba(255,255,255,0.40)'; this.style.background='rgba(255,255,255,0.04)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.18)'; this.style.background='transparent';">
           See how it works
         </a>
       </div>
 
+      <!-- Trust line -->
+      <p class="text-sm animate-fade-up animate-fade-up-delay-4" style="color: rgba(255,255,255,0.38);">
+        No lock-in · Cancel anytime · UK-based account management
+      </p>
     </div>
   </div>
-
-  <!-- Decorative element -->
-  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 lg:w-96 lg:h-96 rounded-full opacity-10" style="background: radial-gradient(circle, #7c3aed, transparent); right: -5rem;"></div>
 </section>

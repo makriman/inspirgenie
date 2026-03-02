@@ -1,30 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
 @import "tailwindcss";
 @source "../**/*.{astro,html,ts,js,jsx,tsx,mdx}";
 
 @theme {
-  --color-purple: #7c3aed;
-  --color-deep-blue: #1e40af;
-  --color-electric-lime: #B6F03C;
-  --color-coral: #fb7185;
-  --color-cream: #f5f5f4;
-  --color-dark: #0f0a1a;
+  --color-purple: #3B30A8;
+  --color-deep-blue: #0C1F40;
+  --color-electric-lime: #E9A828;
+  --color-coral: #C95D3E;
+  --color-cream: #F4EFE8;
+  --color-dark: #0E1117;
   --color-white: #ffffff;
   --color-gray-600: #4b5563;
   --color-gray-400: #9ca3af;
   --color-gray-200: #e5e7eb;
 
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 }
 
 :root {
-  --purple: #7c3aed;
-  --deep-blue: #1e40af;
-  --electric-lime: #B6F03C;
-  --coral: #fb7185;
-  --cream: #f5f5f4;
-  --dark: #0f0a1a;
+  --purple: #3B30A8;
+  --deep-blue: #0C1F40;
+  --electric-lime: #E9A828;
+  --coral: #C95D3E;
+  --cream: #F4EFE8;
+  --dark: #0E1117;
   --white: #ffffff;
 }
 
@@ -140,12 +140,21 @@ a {
 
 /* Page hero (inner pages) */
 .page-hero {
-  background-color: #1e40af;
+  background-color: #0C1F40;
   padding: 108px 0 60px;
   min-height: 260px;
   display: flex;
   align-items: flex-end;
   position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
 }
 .page-hero--compact {
   padding: 90px 0 44px;
@@ -153,13 +162,15 @@ a {
 }
 .page-hero .container {
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 .page-label {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #B6F03C;
+  color: #E9A828;
   margin-bottom: 14px;
   display: block;
 }
@@ -173,7 +184,7 @@ a {
 }
 .page-hero .hero-sub {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.72);
   max-width: 580px;
   line-height: 1.6;
   margin: 0;
@@ -187,24 +198,24 @@ a {
   margin-bottom: 20px;
 }
 .page-breadcrumb a {
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.45);
   text-decoration: none;
   transition: color 0.15s;
 }
 .page-breadcrumb a:hover {
-  color: rgba(255, 255, 255, 0.90);
+  color: rgba(255, 255, 255, 0.80);
 }
 .page-breadcrumb span[aria-current="page"] {
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.75);
   font-weight: 500;
 }
 .page-breadcrumb-sep {
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.22);
   font-size: 12px;
   user-select: none;
 }
 
 /* Footer brand/legal */
-.footer-brand-line { font-size: 13px; color: #d1d5db; margin-bottom: 4px; }
-.footer-company-line { font-size: 11px; color: #6b7280; margin-bottom: 3px; }
-.footer-copyright { font-size: 11px; color: #6b7280; }
+.footer-brand-line { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+.footer-company-line { font-size: 11px; color: rgba(255,255,255,0.22); margin-bottom: 3px; }
+.footer-copyright { font-size: 11px; color: rgba(255,255,255,0.22); }

@@ -33,7 +33,7 @@ function readingTime(body: string): number {
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {sortedPosts.map(post => (
             <a href={`/blog/${getSlug(post.id)}`} class="group bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-lg hover:border-purple/30 transition-all duration-200">
-              <div class="h-32" style="background: linear-gradient(135deg, #7c3aed 0%, #1e40af 100%);">
+              <div class="h-32" style="background: linear-gradient(135deg, #3B30A8 0%, #0C1F40 100%);">
                 <div class="h-full flex items-end p-6">
                   <div class="flex flex-wrap gap-2">
                     {post.data.tags.slice(0, 2).map((tag: string) => (
