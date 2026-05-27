@@ -1,43 +1,64 @@
-# Astro Starter Kit: Minimal
+# inspir Ecommerce Operations Website
 
-```sh
-npm create astro@latest -- --template minimal
+An Astro marketing site for managed ecommerce operations services.
+
+Live: [https://inspirops.vercel.app](https://inspirops.vercel.app)
+
+## Mission
+
+Small ecommerce teams should not lose momentum to catalogue cleanup, returns, customer support, order issues, or platform admin. This site presents inspir as a dedicated operations partner for online stores.
+
+## What This Repository Contains
+
+Astro static site for inspir managed ecommerce operations, with service pages, platform pages, pricing, FAQ, blog content, legal pages, global components, sitemap integration, and brand assets.
+
+## Highlights
+
+- Homepage with hero, platform strip, services grid, process, pricing, testimonials, FAQ, and CTA.
+- Dedicated service pages for catalogue, support, inventory, orders, and returns.
+- Platform pages for Shopify, WooCommerce, Magento, and BigCommerce.
+- Blog, privacy, terms, cookies, contact, pricing, FAQ, and how-it-works pages.
+
+## Tech Stack
+
+- Astro
+- MDX content
+- Tailwind CSS via Vite
+- Astro sitemap
+- Sharp image tooling
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Quality Checks
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Repository Notes
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- The Astro config targets https://inspir.uk; update it if the production domain changes.
+- Keep legal and pricing copy aligned with actual service terms.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Contributing
 
-## 🧞 Commands
+Contributions are welcome. The best contributions are specific, tested, and grounded in the product mission. Good places to help include documentation, accessibility, tests, bug reports, UI polish, data validation, and safer AI behavior.
 
-All commands are run from the root of the project, from a terminal:
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Security
 
-## 👀 Want to learn more?
+Please do not open public issues for secrets, auth bypasses, data exposure, provider key leaks, or abuse vectors. Follow [SECURITY.md](SECURITY.md).
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Code of Conduct
+
+This project follows [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Be direct, kind, and useful.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
