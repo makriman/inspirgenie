@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://inspir.uk/sitemap-index.xml
+
+# Sitemap omitted until `site` is set in astro.config.mjs.
+# https://inspir.uk is a different product. https://inspirops.vercel.app is not deployed.

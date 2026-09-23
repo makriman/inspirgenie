@@ -5,13 +5,14 @@ import Breadcrumbs from '../components/global/Breadcrumbs.astro';
 <PageLayout
   title="Privacy Policy | inspir"
   description="Privacy policy for inspir learning LTD. How we collect, use, and protect your personal data under UK GDPR."
+  headerTone="solid"
 >
   <Breadcrumbs items={[{ label: 'Privacy Policy' }]} />
 
   <section class="py-20 bg-cream">
     <div class="container max-w-3xl mx-auto">
       <h1 class="text-4xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Privacy Policy</h1>
-      <p class="text-gray-500 mb-12 text-sm">Last updated: January 2026</p>
+      <p class="text-gray-500 mb-12 text-sm">Last updated: 23 September 2026</p>
 
       <div class="space-y-10">
 
@@ -23,34 +24,31 @@ import Breadcrumbs from '../components/global/Breadcrumbs.astro';
 
         <div class="border-t border-gray-200 pt-10">
           <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">What data we collect</h2>
-          <p class="text-gray-600 mb-4">We collect personal data in the following ways:</p>
+          <p class="text-gray-600 mb-4">This website does not run analytics and does not store contact-form submissions. We collect personal data when you contact us directly:</p>
           <ul class="space-y-3 text-gray-600">
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Enquiry form submissions:</strong> Name, email address, store URL, platform type, order volume, and any information you include in your message.</span></li>
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Email communications:</strong> Email address and any personal data you include in messages to us.</span></li>
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Analytics:</strong> Anonymous usage data including pages visited, time on site, and referral source. We use privacy-respecting analytics that do not collect personally identifiable information without consent.</span></li>
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Cookies:</strong> See our <a href="/cookies" class="text-purple hover:underline">Cookie Policy</a> for details.</span></li>
+            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Email:</strong> If you email hello@inspir.uk, we receive your address and the message you send. The contact page only opens that email in your mail app. It does not send the form to our servers.</span></li>
+            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Client work:</strong> Information you give us so we can deliver a service you have engaged us for.</span></li>
+            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Cookies and analytics:</strong> This website does not set cookies and does not record pages visited, time on site, or referral source. See our <a href="/cookies" class="text-purple hover:underline">Cookie Policy</a>.</span></li>
           </ul>
         </div>
 
         <div class="border-t border-gray-200 pt-10">
           <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">How we use your data</h2>
           <ul class="space-y-3 text-gray-600">
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Responding to your enquiry and discussing our services</li>
+            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Responding to your email and discussing our services</li>
             <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Delivering the services you have engaged us to provide</li>
             <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Sending service-related communications (invoices, reports, updates)</li>
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Improving our website and services based on anonymous analytics</li>
             <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Complying with our legal obligations</li>
           </ul>
-          <p class="text-gray-600 mt-4">We do not sell your personal data. We do not use it for advertising purposes.</p>
+          <p class="text-gray-600 mt-4">We do not sell your personal data. We do not use it for advertising. We do not use website analytics.</p>
         </div>
 
         <div class="border-t border-gray-200 pt-10">
           <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Legal basis for processing</h2>
           <ul class="space-y-3 text-gray-600">
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Legitimate interests:</strong> Processing enquiry submissions and responding to potential clients.</span></li>
+            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Legitimate interests:</strong> Reading and replying to email from potential clients.</span></li>
             <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Contract performance:</strong> Processing data necessary to deliver services to existing clients.</span></li>
             <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Legal obligation:</strong> Retaining records as required by UK law.</span></li>
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span><span><strong class="text-dark">Consent:</strong> For any non-essential cookies or marketing communications where applicable.</span></li>
           </ul>
         </div>
 
@@ -58,9 +56,8 @@ import Breadcrumbs from '../components/global/Breadcrumbs.astro';
           <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Data retention</h2>
           <p class="text-gray-600 mb-4">We retain personal data only for as long as necessary:</p>
           <ul class="space-y-3 text-gray-600">
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Enquiry data: Up to 24 months if no contract is entered into</li>
+            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Email enquiries: Up to 24 months if no contract is entered into</li>
             <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Client data: Duration of the contract plus 7 years for financial records</li>
-            <li class="flex items-start gap-3"><span class="text-purple mt-1 flex-shrink-0">·</span>Analytics data: 13 months maximum</li>
           </ul>
         </div>
 
@@ -81,7 +78,7 @@ import Breadcrumbs from '../components/global/Breadcrumbs.astro';
 
         <div class="border-t border-gray-200 pt-10">
           <h2 class="text-2xl font-extrabold text-dark mb-4" style="font-family: var(--font-heading);">Data processors and transfers</h2>
-          <p class="text-gray-600">We use a small number of third-party processors to deliver our services. All processors are subject to data processing agreements and comply with UK GDPR. We do not transfer personal data outside the UK/EEA without appropriate safeguards in place.</p>
+          <p class="text-gray-600">We use a small number of third-party processors to deliver client services. Those processors are subject to data processing agreements and comply with UK GDPR. We do not transfer personal data outside the UK/EEA without appropriate safeguards in place. This website does not send visitor data to an analytics or advertising processor.</p>
         </div>
 
         <div class="border-t border-gray-200 pt-10">
