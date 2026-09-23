@@ -1,0 +1,9 @@
+# Agent notes
+
+This repository is owned by the All other projects catch-all product owner.
+
+- Cloud Agent review is allowed.
+- Open draft pull requests only.
+- Do not merge without Jev.
+- Never commit secrets, env files, tokens, or production data.
+- Do not invite `cursoragent` as a collaborator.
