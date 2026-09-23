@@ -1,13 +1,12 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import PageHero from '../components/global/PageHero.astro';
-
-const siteUrl = 'https://inspir.uk';
+import { siteUrl } from '../utils/site-url';
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "inspir learning LTD",
-  "url": siteUrl,
+  "url": siteUrl(Astro.site),
   "email": "hello@inspir.uk",
   "address": {
     "@type": "PostalAddress",
@@ -34,8 +33,7 @@ const localBusinessSchema = {
         <div class="grid lg:grid-cols-5 gap-12">
           <!-- Form -->
           <div class="lg:col-span-3">
-            <!-- TODO: Connect form to backend (webhook, email service, or CRM) -->
-            <form id="contact-form" class="space-y-6" action="#" method="POST">
+            <form id="contact-form" class="space-y-6" action="mailto:hello@inspir.uk" method="post" enctype="text/plain">
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label for="name" class="block text-sm font-semibold text-dark mb-2">Name <span class="text-coral">*</span></label>
@@ -146,19 +144,13 @@ const localBusinessSchema = {
                 type="submit"
                 class="w-full bg-purple text-white font-bold py-4 rounded-xl text-lg hover:bg-[#6d28d9] transition-colors"
               >
-                Get started →
+                Email us →
               </button>
 
-              <p class="text-xs text-gray-400 text-center">
-                No commitment required. We'll reply within 24 hours.
+              <p class="text-sm text-gray-600 text-center">
+                This page does not store what you type. Submit opens an email to hello@inspir.uk in your mail app.
               </p>
             </form>
-
-            <!-- Success message (hidden by default) -->
-            <div id="form-success" class="hidden mt-6 p-6 bg-purple/10 border border-purple/30 rounded-xl text-center">
-              <p class="font-bold text-dark text-lg mb-1">Thanks — we'll be in touch within 24 hours.</p>
-              <p class="text-gray-600 text-sm">We reply to every enquiry personally, usually faster.</p>
-            </div>
           </div>
 
           <!-- Sidebar -->
@@ -168,7 +160,7 @@ const localBusinessSchema = {
                 <h3 class="font-bold text-dark mb-4" style="font-family: var(--font-heading);">What happens next</h3>
                 <ol class="space-y-4">
                   {[
-                    'We review your enquiry and reply within 24 hours.',
+                    'You email hello@inspir.uk. We reply within 24 hours.',
                     'We schedule a 30-minute scoping call at a time that suits you.',
                     'We send you a scope document and contract to review.',
                     'Once signed, your operator is assigned and onboarding starts.'
@@ -182,7 +174,7 @@ const localBusinessSchema = {
               </div>
 
               <div class="bg-cream rounded-2xl p-6 border border-gray-200">
-                <h3 class="font-bold text-dark mb-3" style="font-family: var(--font-heading);">Prefer email?</h3>
+                <h3 class="font-bold text-dark mb-3" style="font-family: var(--font-heading);">Email us</h3>
                 <a href="mailto:hello@inspir.uk" class="text-purple font-semibold hover:text-deep-blue transition-colors">
                   hello@inspir.uk
                 </a>
@@ -209,13 +201,24 @@ const localBusinessSchema = {
 </PageLayout>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const successMessage = document.getElementById('form-success');
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
 
-  form?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // TODO: Replace with actual form submission (webhook, email service, or CRM)
-    form.style.display = 'none';
-    successMessage?.classList.remove('hidden');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const help = data.getAll('help_with').map(String).filter(Boolean).join(', ') || 'Not specified';
+    const lines = [
+      `Name: ${data.get('name') ?? ''}`,
+      `Email: ${data.get('email') ?? ''}`,
+      `Store URL: ${data.get('store_url') ?? ''}`,
+      `Platform: ${data.get('platform') ?? ''}`,
+      `Help with: ${help}`,
+      `Monthly order volume: ${data.get('order_volume') ?? ''}`,
+      '',
+      `${data.get('message') ?? ''}`,
+    ];
+    const subject = encodeURIComponent('Ecommerce operations enquiry');
+    const body = encodeURIComponent(lines.join('\n'));
+    window.location.href = `mailto:hello@inspir.uk?subject=${subject}&body=${body}`;
   });
 </script>

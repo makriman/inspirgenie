@@ -2,14 +2,13 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import CTA from '../components/global/CTA.astro';
 import PageHero from '../components/global/PageHero.astro';
-
-const siteUrl = 'https://inspir.uk';
+import { siteUrl } from '../utils/site-url';
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "inspir learning LTD",
   "description": "Managed ecommerce operations for UK businesses. One dedicated operator, £999/month.",
-  "url": siteUrl,
+  "url": siteUrl(Astro.site),
   "email": "hello@inspir.uk",
   "address": {
     "@type": "PostalAddress",

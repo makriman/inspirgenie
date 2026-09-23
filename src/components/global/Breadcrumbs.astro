@@ -1,4 +1,6 @@
 ---
+import { siteUrl } from '../../utils/site-url';
+
 interface BreadcrumbItem {
   label: string;
   href?: string;
@@ -11,18 +13,16 @@ interface Props {
 
 const { items, class: className = '' } = Astro.props;
 
-const siteUrl = 'https://inspir.uk';
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl(Astro.site, '/') },
     ...items.map((item, i) => ({
       "@type": "ListItem",
       "position": i + 2,
       "name": item.label,
-      ...(item.href ? { "item": `${siteUrl}${item.href}` } : {})
+      ...(item.href ? { "item": siteUrl(Astro.site, item.href) } : {})
     }))
   ]
 };

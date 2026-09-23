@@ -10,14 +10,17 @@ interface Props {
   ogType?: string;
   canonical?: string;
   noindex?: boolean;
+  /** `overlay` sits on a dark hero. `solid` is for pages with a light top. */
+  headerTone?: 'overlay' | 'solid';
 }
 
-const props = Astro.props;
+const { headerTone = 'overlay', ...layoutProps } = Astro.props;
 ---
-<BaseLayout {...props}>
+<BaseLayout {...layoutProps}>
   <slot name="head" slot="head" />
-  <Header />
+  <Header tone={headerTone} />
   <main>
+    {headerTone === 'solid' && <div class="h-16 lg:h-20" aria-hidden="true"></div>}
     <slot />
   </main>
   <Footer />

@@ -8,8 +8,7 @@ import PricingPreview from '../components/home/PricingPreview.astro';
 import Testimonials from '../components/home/Testimonials.astro';
 import FAQPreview from '../components/home/FAQPreview.astro';
 import CTA from '../components/global/CTA.astro';
-
-const siteUrl = 'https://inspir.uk';
+import { siteUrl } from '../utils/site-url';
 const homeSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -18,7 +17,7 @@ const homeSchema = {
   "provider": {
     "@type": "Organization",
     "name": "inspir learning LTD",
-    "url": siteUrl
+    "url": siteUrl(Astro.site)
   },
   "areaServed": "GB",
   "offers": {

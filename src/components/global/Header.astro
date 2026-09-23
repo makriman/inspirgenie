@@ -1,8 +1,15 @@
 ---
 import { serviceNavItems, platformNavItems, mainNav } from '../../data/navigation';
+
+interface Props {
+  tone?: 'overlay' | 'solid';
+}
+
+const { tone = 'overlay' } = Astro.props;
 const currentPath = Astro.url.pathname;
+const headerClass = `fixed top-0 left-0 right-0 z-50 transition-all duration-300${tone === 'solid' ? ' scrolled' : ''}`;
 ---
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="banner">
+<header id="site-header" class={headerClass} data-tone={tone} role="banner">
   <div class="container">
     <nav class="flex items-center justify-between h-16 lg:h-20" aria-label="Main navigation">
 
@@ -213,9 +220,10 @@ const currentPath = Astro.url.pathname;
   const mobileClose = document.getElementById('mobile-menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
 
-  // Scroll behaviour
+  // Scroll behaviour. Solid headers stay readable on light pages.
+  const solidHeader = header?.dataset.tone === 'solid';
   function updateHeader() {
-    if (window.scrollY > 60) {
+    if (solidHeader || window.scrollY > 60) {
       header?.classList.add('scrolled');
     } else {
       header?.classList.remove('scrolled');

@@ -2,7 +2,7 @@
 
 An Astro marketing site for managed ecommerce operations services.
 
-Live: [https://inspirops.vercel.app](https://inspirops.vercel.app)
+This repository is the static site only. It is not deployed. `https://inspirops.vercel.app` returns Vercel `DEPLOYMENT_NOT_FOUND`, and `https://inspir.uk` serves a different product (AI learning tools). Canonical URLs and the sitemap stay off until `site` in `astro.config.mjs` is a host that serves these pages.
 
 ## Mission
 
@@ -42,7 +42,9 @@ npm run build
 
 ## Repository Notes
 
-- The Astro config targets https://inspir.uk; update it if the production domain changes.
+- `site` in `astro.config.mjs` is empty. Set it, then the sitemap integration and the `Sitemap:` line in `public/robots.txt` can be turned back on.
+- The contact page does not store submissions. It opens an email to hello@inspir.uk.
+- This site does not run analytics or set its own cookies.
 - Keep legal and pricing copy aligned with actual service terms.
 
 ## Contributing
